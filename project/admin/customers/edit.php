@@ -26,13 +26,13 @@
         ?>
             <label for="id">ID: </label><input type="text" name="id" id="id" readonly value="<?php echo $customer['CUS_ID']; ?>"><br>
             <label for="name">Name: </label><input type="text" name="name" id="name" value="<?php echo $customer['NAME']; ?>"><br>
-            <label for="phone">phone: </label><input type="text" name="phone" id="phone" value="<?php echo $customer['PHONE_NUMBER']; ?>"><br>
-            <label for="email">email: </label><input type="text" name="email" id="email" value="<?php echo $customer['EMAIL']; ?>"><br>
-            <label for="gender">gender: </label>
-            <input type="radio" name="gender" id="gender" value="<?php echo $customer['GENDER']; ?>"> Male 
-            <input type="radio" name= "gender" id="gender" value="<?php echo $customer['GENDER']; ?>">Female<br>
-            <label for="address">address: </label><textarea name="address" id="address" value="<?php echo $customer['ADDRESS']; ?>"></textarea><br>
-            <label for="description">description: </label><textarea name="description" id="description" value="<?php echo $customer['DESCRIPTION']; ?>"></textarea><br>
+            <label for="phone">Phone: </label><input type="text" name="phone" id="phone" value="<?php echo $customer['PHONE_NUMBER']; ?>"><br>
+            <label for="email">Email: </label><input type="text" name="email" id="email" value="<?php echo $customer['EMAIL']; ?>"><br>
+            <label for="gender">Gender: </label>
+            <input type="radio" name="gender" id="gender_male" value="Male" <?php echo ($customer['GENDER'] == 'Male') ? 'checked' : ''; ?>> Male 
+            <input type="radio" name="gender" id="gender_female" value="Female" <?php echo ($customer['GENDER'] == 'Female') ? 'checked' : ''; ?>> Female<br>
+            <label for="address">Address: </label><textarea name="address" id="address"><?php echo $customer['ADDRESS']; ?></textarea><br>
+            <label for="description">Description: </label><textarea name="description" id="description"><?php echo $customer['DESCRIPTION']; ?></textarea><br>
         <?php
             }
         ?>
