@@ -29,12 +29,12 @@
             <label for="username">username: </label><input type="text" name="username" id="username" value="<?php echo $admin['USERNAME']; ?>"><br>
             <label for="email">email: </label><input type="text" name="email" id="email" value="<?php echo $admin['EMAIL']; ?>"><br>
             <label for="password">password: </label><input type="password" name="password" id="password" value="<?php echo $admin['PASSWORD']; ?>"><br>
-            <label for="address">address: </label><textarea name="address" id="address" value="<?php echo $admin['ADDRESS']; ?>"></textarea><br>
+            <label for="address">address: </label><textarea name="address" id="address"><?php echo $admin['ADDRESS']; ?></textarea><br>
             <label for="role">Role: </label>
             <select name="role" id="role">
-            <option value="0">admin</option>
-            <option value="1">manager</option>
-            <option value="2">storage manager</option>
+            <option value="0" <?php echo $admin['ROLE'] == 0 ? 'selected' : ''; ?>>admin</option>
+            <option value="1" <?php echo $admin['ROLE'] == 1 ? 'selected' : ''; ?>>manager</option>
+            <option value="2" <?php echo $admin['ROLE'] == 2 ? 'selected' : ''; ?>>storage manager</option>
             </select><br>
         <?php
             }

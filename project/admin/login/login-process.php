@@ -19,7 +19,7 @@
         } else {
             //lưu account lên session
             $_SESSION['ADMIN_ID'] = $row['ADMIN_ID'];
-            $_SESSION['username'] = $row['username'];
+            $_SESSION['USERNAME'] = $row['USERNAME'];
             //quay về trang admin
             header("location: ../../layouts/layout.php");
         }

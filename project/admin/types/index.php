@@ -8,6 +8,10 @@
 </head>
 <body>
     <?php
+        session_start();
+        if(empty($_SESSION['USERNAME'])){
+            header('Location: ../login/login.php');
+        }
         include_once "../../layouts/header.php";
     ?>
     <?php

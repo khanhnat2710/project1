@@ -7,13 +7,12 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="http://localhost/php/project/layouts/layout.php# " class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="http://localhost/php/project/admin/customers/index.php" class="nav-link px-2 text-white">customer</a></li>
-          <li><a href="http://localhost/php/project/admin/brands/index.php#" class="nav-link px-2 text-white">brand</a></li>
-          <li><a href="http://localhost/php/project/admin/products/index.php" class="nav-link px-2 text-white">product</a></li>
-          <li><a href="http://localhost/php/project/admin/types/index.php#" class="nav-link px-2 text-white">type</a></li>
-          <li><a href="http://localhost/php/project/admin/payment%20methods/index.php#" class="nav-link px-2 text-white">payment method</a></li>
-          <li><a href="http://localhost/php/project/admin/admins/index.php#" class="nav-link px-2 text-white">admin</a></li>
+          <li><a href="/php/project/admin/customers/index.php" class="nav-link px-2 text-white">customer</a></li>
+          <li><a href="/php/project/admin/brands/index.php" class="nav-link px-2 text-white">brand</a></li>
+          <li><a href="/php/project/admin/products/index.php" class="nav-link px-2 text-white">product</a></li>
+          <li><a href="/php/project/admin/types/index.php" class="nav-link px-2 text-white">type</a></li>
+          <li><a href="/php/project/admin/payment methods/index.php" class="nav-link px-2 text-white">payment method</a></li>
+          <li><a href="/php/project/admin/admins/index.php" class="nav-link px-2 text-white">admin</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -21,8 +20,7 @@
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-warning">logout</button>
-        </div>
+          <a href="/php/project/admin/login/logout.php" class="btn btn-warning text-white">Sign out</a>        </div>
       </div>
     </div>
   </header>
