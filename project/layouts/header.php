@@ -20,7 +20,7 @@
         </form>
 
         <div class="text-end">
-          <a href="/php/project/admin/login/logout.php" class="btn btn-warning text-white">Sign out</a>        </div>
+          <a href="/php/project/admin/login/logout.php" class="btn btn-warning text-white">Sign out</a></div>
       </div>
     </div>
   </header>
