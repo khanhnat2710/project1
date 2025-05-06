@@ -43,7 +43,6 @@
             foreach ($products as $product){
         ?>
   <section class="products">
-    <h2>Sản phẩm nổi bật</h2>
     <div class="product-grid">
       <!-- Mỗi sản phẩm được bọc trong thẻ <a> chuyển hướng tới trang chi tiết tương ứng -->
       <a href="product.php?id=<?php echo $product["PRD_ID"]; ?>" class="product">
@@ -51,7 +50,6 @@
         <h3><?php echo $product['NAME'] ?></h3>
         <p><?php echo $product['PRICE']; ?></p>
       </a>
-      
     </div>
   </section>
         <?php 
