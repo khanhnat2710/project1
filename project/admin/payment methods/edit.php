@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
+<?php
+        include_once "../../layouts/header.php";
+    ?>
     <?php
         //Lấy id
         $id = $_GET['id'];
@@ -31,5 +34,8 @@
         ?>
         <button>Add</button>
     </form>
+    <?php
+        include_once "../../layouts/footer.php";
+    ?>
 </body>
 </html>

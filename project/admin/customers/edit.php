@@ -8,6 +8,9 @@
 </head>
 <body>
     <?php
+        include_once "../../layouts/header.php";
+    ?>
+    <?php
         //lấy id
         $id = $_GET['id'];
         //mở kết nối
@@ -38,5 +41,8 @@
         ?>
         <button>Update</button>
     </form>
+    <?php
+        include_once "../../layouts/footer.php";
+    ?>
 </body>
 </html>

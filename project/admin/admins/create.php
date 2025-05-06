@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
+    <?php
+        include_once "../../layouts/header.php";
+    ?>
     <form action="store.php" method="post">
         <label for="name">name: </label><input type="text" name="name" id="name"><br>
         <label for="email">email: </label><input type="text" name="email" id="email"><br>
@@ -21,5 +24,8 @@
         </select><br>
         <button>Add</button>
     </form>
+    <?php
+        include_once "../../layouts/footer.php";
+    ?>
 </body>
 </html>

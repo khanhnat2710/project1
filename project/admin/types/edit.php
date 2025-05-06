@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>edit type</title>
+    <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
+    <?php
+        include_once "../../layouts/header.php";
+    ?>
     <?php
         //Lấy id
         $id = $_GET['id'];
@@ -30,5 +34,8 @@
         ?>
         <button>Add</button>
     </form>
+    <?php
+        include_once "../../layouts/footer.php";
+    ?>
 </body>
 </html>
