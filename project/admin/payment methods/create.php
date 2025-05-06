@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add new payment method</title>
+    <title>Thêm phương thức thanh toán</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body><?php
@@ -11,11 +11,11 @@
     ?>
 
     <form method="post" action="type.php">
-        <label for="name">Name: </label><input type="text" name="name" id="name"><br>
-        <button>Add</button>
+        <label for="name">Tên kiểu thanh toán: </label><input type="text" name="name" id="name"><br>
+        <button>Thêm</button>
     </form>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

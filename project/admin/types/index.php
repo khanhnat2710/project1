@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>type list</title>
-    <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
     <?php
@@ -30,8 +29,8 @@
     </a>
     <table class="table table-striped table-hover">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
+            <th>STT</th>
+            <th>Tên kiểu máy</th>
             <td></td>
             <td></td>
         </tr>
@@ -47,12 +46,12 @@
                 </td>
                 <td>
                     <a href="edit.php?id=<?php echo $row['TYPE_ID']; ?>">
-                            <button class="vista-button"><div>Edit</div></button>
+                            <button class="vista-button"><div>Chỉnh Sửa</div></button>
                     </a>
                 </td>
                 <td>
                     <a href="destroy.php?id=<?php echo $row['TYPE_ID']; ?>">
-                        <button class="vista-button"><div>Delete</div></button>
+                        <button class="vista-button"><div>Xóa</div></button>
                     </a>
                 </td>
             </tr>
@@ -60,8 +59,8 @@
             }
         ?>
     </table>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

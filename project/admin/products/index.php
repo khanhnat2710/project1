@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>product list</title>
+    <title>Trang danh sách sản phẩm</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
@@ -26,23 +26,23 @@
         //Hiển thị dữ liệu
     ?>
     <a href="create.php">
-    <button class="button-name" role="button">Add new type</button>
+    <button class="button-name" role="button">Thêm một sản phẩm mới</button>
     </a>
     <table class="table table-striped table-hover">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Image</th>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Ảnh sản phẩm</th>
             <th>Ram</th>
             <th>Chip</th>
             <th>Rom</th>
-            <th>Screen size</th>
+            <th>Kích cỡ mà hình</th>
             <th>Camera</th>
-            <th>Color</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Brand</th>
-            <th>Type</th>
+            <th>Màu sắc</th>
+            <th>Giá thành</th>
+            <th>Số lượng</th>
+            <th>Nhãn hàng</th>
+            <th>Kiểu máy</th>
             <th></th>
             <th></th>
         </tr>
@@ -104,8 +104,8 @@
             }
         ?>
     </table>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

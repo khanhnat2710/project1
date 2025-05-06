@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>edit type</title>
+    <title>chỉnh sửa nhẫn hàng</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
@@ -27,15 +27,15 @@
         <?php
             foreach ($brands as $row){
         ?>
-            <label for="id">ID: </label><input type="text" name="id" id="id" readonly value="<?php echo $row['BRAND_ID']; ?>"><br>
-            <label for="name">Name: </label><input type="text" name="name" id="name" value="<?php echo $row['NAME']; ?>"><br>
+            <label for="id">STT: </label><input type="text" name="id" id="id" readonly value="<?php echo $row['BRAND_ID']; ?>"><br>
+            <label for="name">Tên nhãn hàng: </label><input type="text" name="name" id="name" value="<?php echo $row['NAME']; ?>"><br>
         <?php
             }
         ?>
-        <button>Add</button>
+        <button>cập nhật</button>
     </form>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

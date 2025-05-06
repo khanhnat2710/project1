@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add new product</title>
+    <title>Thêm một sản phẩm mới</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
@@ -23,17 +23,17 @@
         include_once "../Connection/close.php";
     ?>
     <form method="post" action="type.php">
-        <label for="name">Name: </label><input type="text" name="name" id="name"><br>
-        <label for="image">Image: </label><input type="text" name="image" id="image"><br>
+        <label for="name">Tên sản phẩm: </label><input type="text" name="name" id="name"><br>
+        <label for="image">Ảnh sản phẩm: </label><input type="text" name="image" id="image"><br>
         <label for="ram">Ram: </label><input type="text" name="ram" id="ram"><br>
         <label for="chip">Chip: </label><input type="text" name="chip" id="chip"><br>
         <label for="rom">Rom: </label><input type="text" name="rom" id="rom"><br>
-        <label for="screen_size">Screen size: </label><input type="text" name="screen_size" id="screen_size"><br>
+        <label for="screen_size">Kích cỡ hình ảnh: </label><input type="text" name="screen_size" id="screen_size"><br>
         <label for="camera">Camera: </label><input type="text" name="camera" id="camera"><br>
-        <label for="color">Color: </label><input type="text" name="color" id="color"><br>
-        <label for="price">Price: </label><input type="text" name="price" id="price"><br>
-        <label for="quantity">Quantity: </label><input type="text" name="quantity" id="quantity"><br>
-        <label for="brand_id">Brand: </label>
+        <label for="color">Màu sắc: </label><input type="text" name="color" id="color"><br>
+        <label for="price">Giá thành: </label><input type="text" name="price" id="price"><br>
+        <label for="quantity">Số lượng: </label><input type="text" name="quantity" id="quantity"><br>
+        <label for="brand_id">Nhãn hàng: </label>
         <select name="brand_id" id="brand_id">
             <?php
                 foreach ($brands as $brand){
@@ -45,7 +45,7 @@
                 }
             ?>
         </select><br>
-        <label for="type_id">Type: </label>
+        <label for="type_id">Kiểu máy: </label>
         <select name="type_id" id="type_id">
             <?php
                 foreach ($types as $type){
@@ -57,10 +57,10 @@
                 }
             ?>
         </select><br>
-        <button>Add</button>
+        <button>Thêm</button>
     </form>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

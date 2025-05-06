@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>edit payment method</title>
+    <title>Chỉnh sửa phương thức thanh toán</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
@@ -27,15 +27,15 @@
         <?php
             foreach ($payment_methods as $row){
         ?>
-            <label for="id">ID: </label><input type="text" name="id" id="id" readonly value="<?php echo $row['PAY_ID']; ?>"><br>
-            <label for="name">Name: </label><input type="text" name="name" id="name" value="<?php echo $row['NAME']; ?>"><br>
+            <label for="id">STT: </label><input type="text" name="id" id="id" readonly value="<?php echo $row['PAY_ID']; ?>"><br>
+            <label for="name">Tên kiểu thanh toán: </label><input type="text" name="name" id="name" value="<?php echo $row['NAME']; ?>"><br>
         <?php
             }
         ?>
-        <button>Add</button>
+        <button>Thêm</button>
     </form>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

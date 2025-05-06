@@ -26,16 +26,16 @@
         //hiển thị dữ liệu
     ?>
     <a href="create.php">
-        <button class="button-name" role="button">Add new admin</button>
+        <button class="button-name" role="button">Thêm nhận sự</button>
     </a>
     <table class="table table-striped table-hover">
         <tr>
-            <th>Id</th>
-            <th>Name</th>
+            <th>STT</th>
+            <th>Tên</th>
             <th>email</th>
-            <th>username</th>
-            <th>address</th>
-            <th>Role</th>
+            <th>Tên đăng nhập</th>
+            <th>Địa chỉ</th>
+            <th>Vai trò</th>
             <th></th>
             <th></th>
         </tr>
@@ -73,12 +73,12 @@
                 </td>
                 <td>
                     <a href="edit.php?id=<?php echo $admin['ADMIN_ID']; ?>">
-                        <button class="vista-button"><div>Edit</div></button>
+                        <button class="vista-button"><div>Chỉnh sửa</div></button>
                     </a>
                 </td>
                 <td>
                     <a href="delete.php?id=<?php echo $admin['ADMIN_ID']; ?>">
-                        <button class="vista-button"><div>Delete</div></button>
+                        <button class="vista-button"><div>Xóa</div></button>
                     </a>
                 </td>
             </tr>
@@ -86,8 +86,8 @@
             }
         ?>
     </table>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

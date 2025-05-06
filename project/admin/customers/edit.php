@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Update a customer</title>
+    <title>Cập nhật thông tin khách hàng</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
@@ -27,22 +27,22 @@
         <?php
             foreach ($customers as $customer) {
         ?>
-            <label for="id">ID: </label><input type="text" name="id" id="id" readonly value="<?php echo $customer['CUS_ID']; ?>"><br>
-            <label for="name">Name: </label><input type="text" name="name" id="name" value="<?php echo $customer['NAME']; ?>"><br>
-            <label for="phone">Phone: </label><input type="text" name="phone" id="phone" value="<?php echo $customer['PHONE_NUMBER']; ?>"><br>
+            <label for="id">STT: </label><input type="text" name="id" id="id" readonly value="<?php echo $customer['CUS_ID']; ?>"><br>
+            <label for="name">Tên khách hàng: </label><input type="text" name="name" id="name" value="<?php echo $customer['NAME']; ?>"><br>
+            <label for="phone">SĐT: </label><input type="text" name="phone" id="phone" value="<?php echo $customer['PHONE_NUMBER']; ?>"><br>
             <label for="email">Email: </label><input type="text" name="email" id="email" value="<?php echo $customer['EMAIL']; ?>"><br>
-            <label for="gender">Gender: </label>
-            <input type="radio" name="gender" id="gender_male" value="Male" <?php echo ($customer['GENDER'] == 'Male') ? 'checked' : ''; ?>> Male 
-            <input type="radio" name="gender" id="gender_female" value="Female" <?php echo ($customer['GENDER'] == 'Female') ? 'checked' : ''; ?>> Female<br>
-            <label for="address">Address: </label><textarea name="address" id="address"><?php echo $customer['ADDRESS']; ?></textarea><br>
-            <label for="description">Description: </label><textarea name="description" id="description"><?php echo $customer['DESCRIPTION']; ?></textarea><br>
+            <label for="gender">Giới tính: </label>
+            <input type="radio" name="gender" id="gender_male" value="Nam" <?php echo ($customer['GENDER'] == 'Nam') ? 'checked' : ''; ?>> Nam 
+            <input type="radio" name="gender" id="gender_female" value="Nữ" <?php echo ($customer['GENDER'] == 'Nữ') ? 'checked' : ''; ?>> Nữ<br>
+            <label for="address">Địa chỉ: </label><textarea name="address" id="address"><?php echo $customer['ADDRESS']; ?></textarea><br>
+            <label for="description">Thông tin khách hàng: </label><textarea name="description" id="description"><?php echo $customer['DESCRIPTION']; ?></textarea><br>
         <?php
             }
         ?>
-        <button>Update</button>
+        <button>Cập nhật</button>
     </form>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>customers</title>
+    <title>Trang thông tin khách hàng</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
@@ -26,17 +26,17 @@
         //hiển thị dữ liệu
     ?>
     <a href="create.php">
-        <button class="button-name" role="button">Add new customer</button>
+        <button class="button-name" role="button">Thêm một khách hàng mới</button>
     </a>
     <table class="table table-striped table-hover">
         <tr>
-            <th>Id</th>
-            <th>Name</th>
+            <th>STT</th>
+            <th>Tên khách hàng</th>
             <th>email</th>
-            <th>gender</th>
-            <th>phone</th>
-            <th>address</th>
-            <th>description</th>
+            <th>Giới tính</th>
+            <th>SĐT</th>
+            <th>Địa chỉ</th>
+            <th>Thông tin khách hàng</th>
             <th></th>
             <th></th>
         </tr>
@@ -67,12 +67,12 @@
                 </td>
                 <td>
                     <a href="edit.php?id=<?php echo $customer['CUS_ID']; ?>">
-                        <button class="vista-button"><div>Edit</div></button>
+                        <button class="vista-button"><div>Chỉnh sửa</div></button>
                     </a>
                 </td>
                 <td>
                     <a href="delete.php?id=<?php echo $customer['CUS_ID']; ?>">
-                        <button class="vista-button"><div>Delete</div></button>
+                        <button class="vista-button"><div>Xóa</div></button>
                     </a>
                 </td>
             </tr>
@@ -80,8 +80,8 @@
             }
         ?>
     </table>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

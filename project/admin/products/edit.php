@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>update a product</title>
+    <title>Chỉnh sửa sản phẩm</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
@@ -33,17 +33,17 @@
             foreach ($products as $product){
         ?>
             <input type="hidden" name="id" value="<?php echo $product["PRD_ID"]; ?>" />
-            <label for="name">Name: </label><input type="text" name="name" id="name" value="<?php echo $product['NAME']; ?>"><br>
-            <label for="image">Image: </label><input type="text" name="image" id="image" value="<?php echo $product['IMAGE']; ?>"><br>
+            <label for="name">Tên sản phẩm: </label><input type="text" name="name" id="name" value="<?php echo $product['NAME']; ?>"><br>
+            <label for="image">Ảnh sản phẩm: </label><input type="text" name="image" id="image" value="<?php echo $product['IMAGE']; ?>"><br>
             <label for="ram">Ram: </label><input type="text" name="ram" id="ram" value="<?php echo $product['RAM']; ?>"><br>
             <label for="chip">Chip: </label><input type="text" name="chip" id="chip" value="<?php echo $product['CHIP']; ?>"><br>
             <label for="rom">Rom: </label><input type="text" name="rom" id="rom" value="<?php echo $product['ROM']; ?>"><br>
-            <label for="screen_size">Screen size: </label><input type="text" name="screen_size" id="screen_size" value="<?php echo $product['SCREEN_SIZE']; ?>"><br>
+            <label for="screen_size">Kích cỡ màn hình: </label><input type="text" name="screen_size" id="screen_size" value="<?php echo $product['SCREEN_SIZE']; ?>"><br>
             <label for="camera">Camera: </label><input type="text" name="camera" id="camera" value="<?php echo $product['CAMERA']; ?>"><br>
-            <label for="color">Color: </label><input type="text" name="color" id="color" value="<?php echo $product['COLOR']; ?>"><br>
-            <label for="price">Price: </label><input type="text" name="price" id="price" value="<?php echo $product['PRICE']; ?>"><br>
-            <label for="quantity">Quantity: </label><input type="text" name="quantity" id="quantity" value="<?php echo $product['QUANTITY']; ?>"><br>
-            <label for="brand_id">Brand: </label>
+            <label for="color">Màu sắc: </label><input type="text" name="color" id="color" value="<?php echo $product['COLOR']; ?>"><br>
+            <label for="price">Giá thành: </label><input type="text" name="price" id="price" value="<?php echo $product['PRICE']; ?>"><br>
+            <label for="quantity">Số lượng: </label><input type="text" name="quantity" id="quantity" value="<?php echo $product['QUANTITY']; ?>"><br>
+            <label for="brand_id">NHãn hàng: </label>
                 <select name="brand_id" id="brand_id">
                     <?php
                         foreach($brands as $brand){
@@ -63,7 +63,7 @@
                         }
                     ?>
                 </select><br>
-            <label for="type_id">Type: </label>
+            <label for="type_id">Kiểu máy: </label>
             <select name="type_id" id="type_id">
                     <?php
                         foreach($types as $type){
@@ -86,10 +86,10 @@
         <?php
             }
         ?>
-        <button>Add</button>
+        <button>Cập nhật</button>
     </form>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

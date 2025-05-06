@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>edit type</title>
-    <link rel="stylesheet" href="../../layouts/style.css">
+    <title>Sửa kiểu máy</title>
+
 </head>
 <body>
     <?php
@@ -28,14 +28,14 @@
             foreach ($types as $row){
         ?>
             <label for="id">ID: </label><input type="text" name="id" id="id" readonly value="<?php echo $row['TYPE_ID']; ?>"><br>
-            <label for="name">Name: </label><input type="text" name="name" id="name" value="<?php echo $row['NAME']; ?>"><br>
+            <label for="name">Tên kiểu máy: </label><input type="text" name="name" id="name" value="<?php echo $row['NAME']; ?>"><br>
         <?php
             }
         ?>
         <button>Add</button>
     </form>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

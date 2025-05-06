@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>payment method list</title>
+    <title>Danh sách phương thức thanh toán</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
@@ -26,12 +26,12 @@
         //Hiển thị dữ liệu
     ?>
     <a href="create.php">
-    <button class="button-name" role="button">Add new payment method</button>
+    <button class="button-name" role="button">Thêm phương thức thanh toán</button>
     </a>
     <table class="table table-striped table-hover">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
+            <th>STT</th>
+            <th>Phương thức thanh toán</th>
             <td></td>
             <td></td>
         </tr>
@@ -47,12 +47,12 @@
                 </td>
                 <td>
                     <a href="edit.php?id=<?php echo $row['PAY_ID']; ?>">
-                        <button class="vista-button"><div>Edit</div></button>
+                        <button class="vista-button"><div>Chỉnh sửa</div></button>
                     </a>
                 </td>
                 <td>
                     <a href="destroy.php?id=<?php echo $row['PAY_ID']; ?>">
-                        <button class="vista-button"><div>Delete</div></button>
+                        <button class="vista-button"><div>Xóa</div></button>
                     </a>
                 </td>
             </tr>
@@ -60,8 +60,8 @@
             }
         ?>
     </table>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>

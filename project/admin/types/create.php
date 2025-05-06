@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add new type</title>
+    <title>Thêm kiểu máy</title>
     <link rel="stylesheet" href="../../layouts/style.css">
 </head>
 <body>
@@ -11,11 +11,11 @@
         include_once "../../layouts/header.php";
     ?>
     <form method="post" action="type.php">
-        <label for="name">Name: </label><input type="text" name="name" id="name"><br>
+        <label for="name">Tên kiểu máy: </label><input type="text" name="name" id="name"><br>
         <button>Add</button>
     </form>
-    <?php
+    <!-- <?php
         include_once "../../layouts/footer.php";
-    ?>
+    ?> -->
 </body>
 </html>
