@@ -7,11 +7,11 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/php/project/admin/customers/index.php" class="nav-link px-2 text-white">customer</a></li>
           <li><a href="/php/project/admin/brands/index.php" class="nav-link px-2 text-white">brand</a></li>
-          <li><a href="/php/project/admin/products/index.php" class="nav-link px-2 text-white">product</a></li>
           <li><a href="/php/project/admin/types/index.php" class="nav-link px-2 text-white">type</a></li>
           <li><a href="/php/project/admin/payment methods/index.php" class="nav-link px-2 text-white">payment method</a></li>
+          <li><a href="/php/project/admin/products/index.php" class="nav-link px-2 text-white">product</a></li>
+          <li><a href="/php/project/admin/customers/index.php" class="nav-link px-2 text-white">customer</a></li>
           <li><a href="/php/project/admin/admins/index.php" class="nav-link px-2 text-white">admin</a></li>
         </ul>
 

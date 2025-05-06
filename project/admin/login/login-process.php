@@ -21,7 +21,7 @@
             $_SESSION['ADMIN_ID'] = $row['ADMIN_ID'];
             $_SESSION['USERNAME'] = $row['USERNAME'];
             //quay về trang admin
-            header("location: ../../layouts/layout.php");
+            header("location: ../admins/index.php");
         }
     }
 ?>
