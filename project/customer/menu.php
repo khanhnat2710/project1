@@ -60,7 +60,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Điện Thoại Store | Hỗ trợ: support@dienthoaistore.com</p>
+    <p>&copy; 2025 SalephoneS | Hỗ trợ: support@salephones.com</p>
   </footer>
 </body>
 </html>

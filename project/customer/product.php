@@ -42,7 +42,7 @@
         ?>
   <section class="product-detail">
     <div class="product-image">
-      <img src="<?php echo $product['IMAGE'] ?>" alt="Samsung Galaxy S24 Ultra">
+      <img src="<?php echo $product['IMAGE'] ?>">
     </div>
     <div class="product-info">
       <h2><?php echo $product['NAME'] ?></h2>
@@ -68,7 +68,7 @@
         ?>
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Điện Thoại Store | Hỗ trợ: support@dienthoaistore.com</p>
+    <p>&copy; 2025 SalephoneS | Hỗ trợ: support@salephones.com</p>
   </footer>
 </body>
 </html>
