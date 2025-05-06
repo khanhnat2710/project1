@@ -34,7 +34,7 @@
         ?>
             <input type="hidden" name="id" value="<?php echo $product["PRD_ID"]; ?>" />
             <label for="name">Name: </label><input type="text" name="name" id="name" value="<?php echo $product['NAME']; ?>"><br>
-            <label for="image">Image: </label><input type="file" name="image" id="image" value="<?php echo $product['IMAGE']; ?>"><br>
+            <label for="image">Image: </label><input type="text" name="image" id="image" value="<?php echo $product['IMAGE']; ?>"><br>
             <label for="ram">Ram: </label><input type="text" name="ram" id="ram" value="<?php echo $product['RAM']; ?>"><br>
             <label for="chip">Chip: </label><input type="text" name="chip" id="chip" value="<?php echo $product['CHIP']; ?>"><br>
             <label for="rom">Rom: </label><input type="text" name="rom" id="rom" value="<?php echo $product['ROM']; ?>"><br>

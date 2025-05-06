@@ -7,6 +7,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <?php
+        //Mở kết nối đến DB
+        include_once "../admin/Connection/open.php";
+        //Viết sql lấy dữ liệu
+        $sql = "SELECT products.*, brands.NAME AS brand_name, types.NAME AS type_name FROM products INNER JOIN brands ON brands.BRAND_ID = products.BRAND_ID INNER JOIN types ON types.TYPE_ID = products.TYPE_ID";
+        //Chạy query
+        $products = mysqli_query($connection, $sql);
+        //Đóng kết nối đến DB
+        include_once "../admin/Connection/close.php";
+        //Hiển thị dữ liệu
+    ?>
   <!-- Header giống trang chủ -->
   <header>
     <h1>Điện Thoại Store</h1>
@@ -28,27 +39,24 @@
   </section>
 
   <!-- Sản phẩm nổi bật -->
+        <?php
+            foreach ($products as $product){
+        ?>
   <section class="products">
     <h2>Sản phẩm nổi bật</h2>
     <div class="product-grid">
       <!-- Mỗi sản phẩm được bọc trong thẻ <a> chuyển hướng tới trang chi tiết tương ứng -->
-      <a href="product.php" class="product">
-        <img src="samsung.jpg" alt="Samsung Galaxy S24 Ultra">
-        <h3>Samsung Galaxy S24 Ultra</h3>
-        <p>28,000,000 VNĐ</p>
+      <a href="product.php?id=<?php echo $product["PRD_ID"]; ?>" class="product">
+        <img src="<?php echo $product['IMAGE'] ?>" >
+        <h3><?php echo $product['NAME'] ?></h3>
+        <p><?php echo $product['PRICE']; ?></p>
       </a>
-      <a href="#" class="product">
-        <img src="iphone.jpg" alt="iPhone 15 Pro Max">
-        <h3>iPhone 15 Pro Max</h3>
-        <p>32,000,000 VNĐ</p>
-      </a>
-      <a href="#" class="product">
-        <img src="pixel.jpg" alt="Google Pixel 8 Pro">
-        <h3>Google Pixel 8 Pro</h3>
-        <p>21,000,000 VNĐ</p>
-      </a>
+      
     </div>
   </section>
+        <?php 
+            }
+        ?>
 
   <!-- Footer -->
   <footer>

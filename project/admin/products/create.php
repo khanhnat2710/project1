@@ -24,7 +24,7 @@
     ?>
     <form method="post" action="type.php">
         <label for="name">Name: </label><input type="text" name="name" id="name"><br>
-        <label for="image">Image: </label><input type="file" name="image" id="image"><br>
+        <label for="image">Image: </label><input type="text" name="image" id="image"><br>
         <label for="ram">Ram: </label><input type="text" name="ram" id="ram"><br>
         <label for="chip">Chip: </label><input type="text" name="chip" id="chip"><br>
         <label for="rom">Rom: </label><input type="text" name="rom" id="rom"><br>
