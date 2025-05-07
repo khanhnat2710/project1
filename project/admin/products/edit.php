@@ -4,92 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chỉnh sửa sản phẩm</title>
-    <link rel="stylesheet" href="../../layouts/style.css">
+    <style>
+        /* Định dạng chung cho body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Định dạng cho form */
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 450px;
+            margin: 20px auto;
+        }
+
+        /* Định dạng cho tiêu đề */
+        form h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        /* Định dạng cho các label */
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Định dạng cho các input và select */
+        form input[type="text"],
+        form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        form input[type="text"]:focus,
+        form select:focus {
+            border-color: #5bc0de;
+            outline: none;
+        }
+
+        /* Định dạng cho nút submit */
+        form button {
+            background-color: #5bc0de;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #31a2c2;
+        }
+    </style>
 </head>
 <body>
     <?php
-        include_once "../../layouts/header.php";
+        // include_once "../../layouts/header.php";
     ?>
     <?php
-        //Mở kết nối
+        // Mở kết nối
         include_once "../Connection/open.php";
-        //Viết sql lấy dữ liệu ở bảng brands
+        // Viết SQL lấy dữ liệu
         $sqlBrand = "SELECT * FROM brands";
-        $sqltype = "SELECT * FROM types";
-        //Chạy sql
-        $brands = mysqli_query($connection, $sqlBrand);
-        $types = mysqli_query($connection, $sqltype);
-        //Lấy id của bản ghi cần sửa
+        $sqlType = "SELECT * FROM types";
         $id = $_GET["id"];
-        //Viết sql lấy dữ liệu của bản ghi cần sửa
         $sqlProduct = "SELECT * FROM products WHERE PRD_ID = '$id'";
-        //Chạy sql
+        // Chạy SQL
+        $brands = mysqli_query($connection, $sqlBrand);
+        $types = mysqli_query($connection, $sqlType);
         $products = mysqli_query($connection, $sqlProduct);
-        //Đóng kết nối
+        // Đóng kết nối
         include_once "../Connection/close.php";
     ?>
     <form method="post" action="update.php">
+        <h1>Chỉnh sửa sản phẩm</h1>
         <?php
-            foreach ($products as $product){
+            foreach ($products as $product) {
         ?>
             <input type="hidden" name="id" value="<?php echo $product["PRD_ID"]; ?>" />
-            <label for="name">Tên sản phẩm: </label><input type="text" name="name" id="name" value="<?php echo $product['NAME']; ?>"><br>
-            <label for="image">Ảnh sản phẩm: </label><input type="text" name="image" id="image" value="<?php echo $product['IMAGE']; ?>"><br>
-            <label for="ram">Ram: </label><input type="text" name="ram" id="ram" value="<?php echo $product['RAM']; ?>"><br>
-            <label for="chip">Chip: </label><input type="text" name="chip" id="chip" value="<?php echo $product['CHIP']; ?>"><br>
-            <label for="rom">Rom: </label><input type="text" name="rom" id="rom" value="<?php echo $product['ROM']; ?>"><br>
-            <label for="screen_size">Kích cỡ màn hình: </label><input type="text" name="screen_size" id="screen_size" value="<?php echo $product['SCREEN_SIZE']; ?>"><br>
-            <label for="camera">Camera: </label><input type="text" name="camera" id="camera" value="<?php echo $product['CAMERA']; ?>"><br>
-            <label for="color">Màu sắc: </label><input type="text" name="color" id="color" value="<?php echo $product['COLOR']; ?>"><br>
-            <label for="price">Giá thành: </label><input type="text" name="price" id="price" value="<?php echo $product['PRICE']; ?>"><br>
-            <label for="quantity">Số lượng: </label><input type="text" name="quantity" id="quantity" value="<?php echo $product['QUANTITY']; ?>"><br>
-            <label for="brand_id">NHãn hàng: </label>
-                <select name="brand_id" id="brand_id">
-                    <?php
-                        foreach($brands as $brand){
-                    ?>
-                        <option value="<?php echo $brand['BRAND_ID']; ?>"
-                            <?php
-                                if($brand['BRAND_ID'] == $product['BRAND_ID']){
-                            ?>
-                                selected='selected'
-                            <?php
-                                }
-                            ?>
-                        >
-                            <?php echo $brand['NAME']; ?>
-                        </option>
-                    <?php
-                        }
-                    ?>
-                </select><br>
-            <label for="type_id">Kiểu máy: </label>
+            <label for="name">Tên sản phẩm:</label>
+            <input type="text" name="name" id="name" value="<?php echo $product['NAME']; ?>">
+
+            <label for="image">Ảnh sản phẩm:</label>
+            <input type="text" name="image" id="image" value="<?php echo $product['IMAGE']; ?>">
+
+            <label for="ram">Ram:</label>
+            <input type="text" name="ram" id="ram" value="<?php echo $product['RAM']; ?>">
+
+            <label for="chip">Chip:</label>
+            <input type="text" name="chip" id="chip" value="<?php echo $product['CHIP']; ?>">
+
+            <label for="rom">Rom:</label>
+            <input type="text" name="rom" id="rom" value="<?php echo $product['ROM']; ?>">
+
+            <label for="screen_size">Kích cỡ màn hình:</label>
+            <input type="text" name="screen_size" id="screen_size" value="<?php echo $product['SCREEN_SIZE']; ?>">
+
+            <label for="camera">Camera:</label>
+            <input type="text" name="camera" id="camera" value="<?php echo $product['CAMERA']; ?>">
+
+            <label for="color">Màu sắc:</label>
+            <input type="text" name="color" id="color" value="<?php echo $product['COLOR']; ?>">
+
+            <label for="price">Giá thành:</label>
+            <input type="text" name="price" id="price" value="<?php echo $product['PRICE']; ?>">
+
+            <label for="quantity">Số lượng:</label>
+            <input type="text" name="quantity" id="quantity" value="<?php echo $product['QUANTITY']; ?>">
+
+            <label for="brand_id">Nhãn hàng:</label>
+            <select name="brand_id" id="brand_id">
+                <?php foreach ($brands as $brand) { ?>
+                    <option value="<?php echo $brand['BRAND_ID']; ?>"
+                        <?php echo ($brand['BRAND_ID'] == $product['BRAND_ID']) ? 'selected' : ''; ?>>
+                        <?php echo $brand['NAME']; ?>
+                    </option>
+                <?php } ?>
+            </select>
+
+            <label for="type_id">Kiểu máy:</label>
             <select name="type_id" id="type_id">
-                    <?php
-                        foreach($types as $type){
-                    ?>
-                        <option value="<?php echo $type['TYPE_ID']; ?>"
-                            <?php
-                                if($type['TYPE_ID'] == $product['TYPE_ID']){
-                            ?>
-                                selected='selected'
-                            <?php
-                                }
-                            ?>
-                        >
-                            <?php echo $type['NAME']; ?>
-                        </option>
-                    <?php
-                        }
-                    ?>
-                </select><br>
+                <?php foreach ($types as $type) { ?>
+                    <option value="<?php echo $type['TYPE_ID']; ?>"
+                        <?php echo ($type['TYPE_ID'] == $product['TYPE_ID']) ? 'selected' : ''; ?>>
+                        <?php echo $type['NAME']; ?>
+                    </option>
+                <?php } ?>
+            </select>
         <?php
             }
         ?>
         <button>Cập nhật</button>
     </form>
     <!-- <?php
-        include_once "../../layouts/footer.php";
+        // include_once "../../layouts/footer.php";
     ?> -->
 </body>
 </html>
