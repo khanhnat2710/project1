@@ -10,7 +10,7 @@
     //mở kết nối
     include_once "../connection/open.php";
     //viết sql
-    $sql = "UPDATE admins SET NAME = '$name', EMAIL = '$email', USERNAME = '$username', ADDRESS = '$address', PASSWORD = '$pasword', ROLE = '$role' WHERE ADMIN_ID = '$id'";
+    $sql = "UPDATE admins SET NAME = '$name', EMAIL = '$email', USERNAME = '$username', ADDRESS = '$address', PASSWORD = '$password', ROLE = '$role' WHERE ADMIN_ID = '$id'";
     //chạy sql
     mysqli_query($connection, $sql);
     //đóng kết nối

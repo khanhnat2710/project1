@@ -13,7 +13,7 @@
     include_once "../connection/close.php";
     //kiểm tra username và password có đúng không
     foreach ($result as $row){
-        if($row['count_id'] == 0){
+        if($row['count_id'] == 0 ){
             //quay về trang login
             header("Location: login.php");
         } else {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Điện Thoại Store - Trang Chủ</title>
+  <title>SalephoneS - Trang Chủ</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
     ?>
   <!-- Header giống trang chủ -->
   <header>
-    <h1>Điện Thoại Store</h1>
+    <h1>SalephoneS</h1>
     <nav>
       <ul>
         <li><a href="menu.php">Trang chủ</a></li>

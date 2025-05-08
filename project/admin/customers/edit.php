@@ -93,9 +93,9 @@
     </style>
 </head>
 <body>
-    <!-- <?php
+    <?php
         // include_once "../../layouts/header.php";
-    ?> -->
+    ?>
     <?php
         // Lấy id
         $id = $_GET['id'];

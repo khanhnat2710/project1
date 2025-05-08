@@ -9,7 +9,7 @@
     //mở kết nối
     include_once "../connection/open.php";
     //viết sql
-    $sql = "INSERT INTO admins(name, email, username, password, address, role)
+    $sql = "INSERT INTO admins(NAME, EMAIL, USERNAME, PASSWORD, ADDRESS, ROLE)
      VALUES ('$name', '$email', '$username', '$password', '$address', '$role')";
     //chạy sql
     mysqli_query($connection, $sql);

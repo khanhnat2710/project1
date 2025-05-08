@@ -87,9 +87,9 @@
     </style>
 </head>
 <body>
-    <!-- <?php
-        include_once "../../layouts/header.php";
-    ?> -->
+    <?php
+        // include_once "../../layouts/header.php";
+    ?>
     <form method="post" action="type.php">
         <h1>Thêm Nhãn Hàng</h1>
         <label for="name">Tên nhãn hàng:</label>
@@ -97,7 +97,7 @@
         <button>Thêm</button>
     </form>
     <!-- <?php
-        include_once "../../layouts/footer.php";
+        // include_once "../../layouts/footer.php";
     ?> -->
 </body>
 </html>

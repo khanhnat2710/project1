@@ -100,9 +100,9 @@
     </style>
 </head>
 <body>
-    <!-- <?php
-        include_once "../../layouts/header.php";
-    ?> -->
+    <?php
+        // include_once "../../layouts/header.php";
+    ?>
     <form action="store.php" method="post">
         <h1>Thêm Nhân Sự</h1>
         <label for="name">Tên nhân viên:</label>
@@ -130,7 +130,7 @@
         <button>Thêm</button>
     </form>
     <!-- <?php
-        include_once "../../layouts/footer.php";
+        // include_once "../../layouts/footer.php";
     ?> -->
 </body>
 </html>

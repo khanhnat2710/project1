@@ -81,9 +81,9 @@
     </style>
 </head>
 <body>
-    <!-- <?php
-        include_once "../../layouts/header.php";
-    ?> -->
+    <?php
+        // include_once "../../layouts/header.php";
+    ?>
     <?php
         // Lấy id
         $id = $_GET['id'];
@@ -112,7 +112,7 @@
         <button>Cập nhật</button>
     </form>
     <!-- <?php
-        include_once "../../layouts/footer.php";
+        // include_once "../../layouts/footer.php";
     ?> -->
 </body>
 </html>
