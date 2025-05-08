@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
@@ -84,18 +84,28 @@
             color: #aaa;
             font-style: italic;
         }
+
+        /* Đảm bảo header chiếm toàn bộ chiều ngang */
+        .header-container {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <?php
-        // include_once "../../layouts/header.php";
-    ?>
+    <!-- Header nằm ở trên cùng -->
+    <div class="header-container">
+        <?php
+            include_once "../../layouts/header.php";
+        ?>
+    </div>
+
     <form method="post" action="type.php">
         <h1>Thêm Nhãn Hàng</h1>
         <label for="name">Tên nhãn hàng:</label>
         <input type="text" name="name" id="name" placeholder="Nhập tên nhãn hàng">
         <button>Thêm</button>
     </form>
+    <!-- Footer -->
     <!-- <?php
         // include_once "../../layouts/footer.php";
     ?> -->

@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
@@ -24,7 +24,6 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 450px;
-            margin: 20px auto;
         }
 
         /* Định dạng cho tiêu đề */
@@ -78,12 +77,22 @@
         form button:hover {
             background-color: #31a2c2;
         }
+
+        /* Đảm bảo header và footer chiếm toàn bộ chiều ngang */
+        .header-container,
+        .footer-container {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <?php
-        // include_once "../../layouts/header.php";
-    ?>
+    <!-- Header nằm ở trên cùng -->
+    <div class="header-container">
+        <?php
+            include_once "../../layouts/header.php";
+        ?>
+    </div>
+
     <?php
         // Lấy id
         $id = $_GET['id'];
@@ -111,8 +120,12 @@
         ?>
         <button>Cập nhật</button>
     </form>
-    <!-- <?php
-        // include_once "../../layouts/footer.php";
-    ?> -->
+
+    <!-- Footer nằm ở dưới cùng -->
+    <div class="footer-container">
+        <?php
+            // include_once "../../layouts/footer.php";
+        ?>
+    </div>
 </body>
 </html>

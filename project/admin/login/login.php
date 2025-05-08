@@ -104,10 +104,10 @@
 </head>
 <body>
     <!-- <?php
-        session_start();
-        if(isset($_SESSION['USERNAME'])){
-            header('Location: ../types/index.php');
-        }
+        // session_start();
+        // if(isset($_SESSION['USERNAME'])){
+        //     header('Location: ../types/index.php');
+        // }
     ?> -->
     <form method="post" action="login-process.php">
     <div class="login-container">

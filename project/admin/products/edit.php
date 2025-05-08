@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
@@ -80,12 +80,21 @@
         form button:hover {
             background-color: #31a2c2;
         }
+
+        /* Đảm bảo header chiếm toàn bộ chiều ngang */
+        .header-container {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <?php
-        // include_once "../../layouts/header.php";
-    ?>
+    <!-- Header nằm ở trên cùng -->
+    <div class="header-container">
+        <?php
+            include_once "../../layouts/header.php";
+        ?>
+    </div>
+
     <?php
         // Mở kết nối
         include_once "../Connection/open.php";
@@ -161,8 +170,9 @@
         ?>
         <button>Cập nhật</button>
     </form>
-    <!-- <?php
+    <!-- Footer -->
+    <?php
         // include_once "../../layouts/footer.php";
-    ?> -->
+    ?>
 </body>
 </html>

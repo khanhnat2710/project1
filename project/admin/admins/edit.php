@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
@@ -97,12 +97,21 @@
             color: #aaa;
             font-style: italic;
         }
+
+        /* Đảm bảo header chiếm toàn bộ chiều ngang */
+        .header-container {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <?php
-        // include_once "../../layouts/header.php";
-    ?>
+    <!-- Header nằm ở trên cùng -->
+    <div class="header-container">
+        <?php
+            include_once "../../layouts/header.php";
+        ?>
+    </div>
+
     <?php
         // Lấy id
         $id = $_GET['id'];
@@ -149,6 +158,7 @@
         ?>
         <button>Cập nhật</button>
     </form>
+    <!-- Footer -->
     <!-- <?php
         // include_once "../../layouts/footer.php";
     ?> -->
