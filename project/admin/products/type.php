@@ -1,7 +1,8 @@
 <?php
     //lấy dữ liệu tròn form
     $name = $_POST['name'];
-    $image = $_POST['image'];
+    $image = $_FILES['image']['name'];
+    // die($image);
     $ram = $_POST['ram'];
     $chip = $_POST['chip'];
     $rom = $_POST['rom'];
@@ -20,6 +21,13 @@
     mysqli_query($connection, $sql);
     //đóng kêt nối
     include_once "../Connection/close.php";
+    //Kiểm tra nếu ảnh chưa có trong thư mục image thì copy ảnh vào thư mục iamge
+    if(!file_exists("../image/" . $image)){
+        // lấy path của ảnh
+        $path = $_FILES['image']['tmp_name'];
+        //lưu ảnh vào thư mục image
+        move_uploaded_file($path, "../image/" . $image);
+    }
     //quay về danh sách
     header("Location: index.php");
 ?>

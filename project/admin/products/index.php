@@ -124,7 +124,7 @@
                     <?php echo $product['NAME']; ?>
                 </td>
                 <td>
-                    <img src="<?php echo $product['IMAGE']; ?>" alt="" width="100px" height="100px">
+                    <img src="../image/<?php echo $product['IMAGE']; ?>" alt="Ảnh sản phẩm" width="100px" height="100px">
                 </td>
                 <td style="text-align: center;">
                     <?php echo $product['RAM']; ?>

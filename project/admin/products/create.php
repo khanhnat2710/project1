@@ -63,6 +63,24 @@
             outline: none;
         }
 
+        /* Định dạng cho input file */
+        form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        form input[type="file"]:focus {
+            border-color: #5bc0de;
+            outline: none;
+        }
+
         /* Định dạng cho nút submit */
         form button {
             background-color: #5bc0de;
@@ -113,13 +131,13 @@
         // Đóng kết nối
         include_once "../Connection/close.php";
     ?>
-    <form method="post" action="type.php">
+    <form method="post" action="type.php" enctype="multipart/form-data">
         <h1>Thêm Sản Phẩm</h1>
         <label for="name">Tên sản phẩm:</label>
         <input type="text" name="name" id="name" placeholder="Nhập tên sản phẩm">
 
         <label for="image">Ảnh sản phẩm:</label>
-        <input type="text" name="image" id="image" placeholder="Nhập đường dẫn ảnh">
+        <input type="file" name="image" id="image">
 
         <label for="ram">Ram:</label>
         <input type="text" name="ram" id="ram" placeholder="Nhập dung lượng RAM">

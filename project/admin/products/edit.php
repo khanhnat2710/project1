@@ -63,6 +63,34 @@
             outline: none;
         }
 
+        /* Định dạng cho input file */
+        form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        form input[type="file"]:focus {
+            border-color: #5bc0de;
+            outline: none;
+        }
+
+        /* Định dạng cho ảnh hiển thị */
+        form img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
         /* Định dạng cho nút submit */
         form button {
             background-color: #5bc0de;
@@ -110,7 +138,7 @@
         // Đóng kết nối
         include_once "../Connection/close.php";
     ?>
-    <form method="post" action="update.php">
+    <form method="post" action="update.php" enctype="multipart/form-data">
         <h1>Chỉnh sửa sản phẩm</h1>
         <?php
             foreach ($products as $product) {
@@ -120,7 +148,8 @@
             <input type="text" name="name" id="name" value="<?php echo $product['NAME']; ?>">
 
             <label for="image">Ảnh sản phẩm:</label>
-            <input type="text" name="image" id="image" value="<?php echo $product['IMAGE']; ?>">
+            <img src="../image/<?php echo $product['IMAGE']; ?>" alt="Ảnh sản phẩm">
+            <input type="file" name="image" id="image" value="<?php echo $product['IMAGE']; ?>">
 
             <label for="ram">Ram:</label>
             <input type="text" name="ram" id="ram" value="<?php echo $product['RAM']; ?>">
