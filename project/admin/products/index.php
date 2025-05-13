@@ -1,3 +1,10 @@
+<?php
+        session_start();
+        if(empty($_SESSION['USERNAME'])){
+            header('Location: ../login/login.php');
+        }
+        include_once "../../layouts/header.php";
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,77 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang danh sách sản phẩm</title>
     <link rel="stylesheet" href="../../layouts/style.css">
-    <style>
-        /* CSS cho cửa sổ nổi (modal) */
-        .modal {
-            display: none; /* Ẩn modal mặc định */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 30%;
-            text-align: center;
-            border-radius: 8px;
-        }
-
-        .modal-buttons {
-            margin-top: 20px;
-        }
-
-        .modal-buttons button {
-            margin: 0 10px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .modal-buttons .confirm {
-            background-color: #d9534f;
-            color: white;
-        }
-
-        .modal-buttons .cancel {
-            background-color: #5bc0de;
-            color: white;
-        }
-        
-        /* Breadcrumb */
-        .breadcrumb {
-            font-size: 16px;
-            margin: 20px 0;
-            padding: 10px 15px;
-            background-color: #f8f9fa; /* Màu nền nhạt */
-            border-radius: 5px;
-            display: inline-block;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
-        }
-
-        .breadcrumb a {
-            text-decoration: none;
-            color: #007bff; /* Màu xanh cho liên kết */
-            transition: color 0.3s ease;
-        }
-
-        .breadcrumb a:hover {
-            color: #0056b3; /* Màu xanh đậm hơn khi hover */
-        }
-
-        .breadcrumb span {
-            color: #6c757d; /* Màu xám cho văn bản không phải liên kết */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script>
         // Hàm hiển thị modal
         function showModal(deleteUrl) {
@@ -100,26 +37,57 @@
 </head>
 <body>
     <?php
-        session_start();
-        if(empty($_SESSION['USERNAME'])){
-            header('Location: ../login/login.php');
-        }
-        include_once "../../layouts/header.php";
-    ?>
-    <?php
         // Mở kết nối đến DB
         include_once "../Connection/open.php";
+        //Lấy giá trị đang tìm kiếm
+        if(isset($_GET['keyword'])){
+            $keyword = $_GET['keyword'];
+        } else {
+            $keyword = '';
+        }
+        //Số bản ghi trong một trang
+        $recordsPerPage = 3;
+        //Query lấy được tổng số bản ghi
+        $sqlCountRecords = "SELECT COUNT(*) AS total_records FROM products
+                            WHERE products.NAME LIKE '%$keyword%'";
+        //chạy sql
+        $countRecords = mysqli_query($connection, $sqlCountRecords);
+        //Lấy tổng số bản ghi
+        foreach ($countRecords as $countRecord){
+            $totalRecords = $countRecord['total_records'];
+        }
+        //Tính tổng số trang
+        $pages = ceil(num: $totalRecords / $recordsPerPage);
+        //lấy trang hiện tại
+        if (isset($_GET['page'])){
+            $page = $_GET['page'];
+        } else {
+            $page = 1;
+        }
+        //Vị trí bắt đầu của từng trang
+        $start = ($page - 1) * $recordsPerPage;
         // Viết SQL lấy dữ liệu
-        $sql = "SELECT products.*, brands.NAME AS brand_name, types.NAME AS type_name FROM products INNER JOIN brands ON brands.BRAND_ID = products.BRAND_ID INNER JOIN types ON types.TYPE_ID = products.TYPE_ID";
+        $sql = "SELECT products.*, brands.NAME AS brand_name, types.NAME AS type_name 
+                FROM products INNER JOIN brands 
+                ON brands.BRAND_ID = products.BRAND_ID INNER JOIN types 
+                ON types.TYPE_ID = products.TYPE_ID
+                WHERE products.NAME LIKE '%$keyword%'
+                LIMIT $start, $recordsPerPage";
         // Chạy query
         $products = mysqli_query($connection, $sql);
         // Đóng kết nối đến DB
         include_once "../Connection/close.php";
         // Hiển thị dữ liệu
     ?>
-    <p class="breadcrumb">
-        <a href="#">Trang admin</a> > <a href="#">Danh sách sản phẩm</a>
-    </p>
+    <div class="breadcrumb-container">
+        <p class="breadcrumb">
+            <a href="#" class="text-dark">Trang admin</a> > <a href="#" class="text-dark">Danh sách sản phẩm</a>
+        </p>
+        <form method="get" action="" class="search-form">
+            <input type="text" name="keyword" placeholder="Tìm kiếm..." value="<?php echo $keyword; ?>">
+            <button>Tìm Kiếm</button>
+        </form>
+    </div>
     <a href="create.php">
         <button class="button-name" role="button">Thêm một sản phẩm mới</button>
     </a>
@@ -200,6 +168,25 @@
             }
         ?>
     </table>
+    <div class="pagination">
+        <?php
+            for ($page = 1; $page <= $pages; $page++){
+                if ($keyword == ""){
+        ?>
+            <a href="?page=<?php echo $page; ?>" class="<?php echo ($page == $_GET['page']) ? 'active' : ''; ?>">
+                <?php echo $page; ?>
+            </a>
+        <?php
+                } else {
+        ?>
+            <a href="?page=<?php echo $page; ?>&&keyword=<?php echo $keyword; ?>" class="<?php echo ($page == $_GET['page']) ? 'active' : ''; ?>">
+                <?php echo $page; ?>
+            </a>
+        <?php
+                }
+            }
+        ?>
+    </div>
 
     <!-- Modal xác nhận xóa -->
     <div id="deleteModal" class="modal">

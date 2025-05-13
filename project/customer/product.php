@@ -151,11 +151,37 @@
       text-align: center;
       padding: 20px 0;
       margin-top: auto; /* Đảm bảo footer luôn nằm ở dưới cùng */
+      clear: both; /* Xóa ảnh hưởng của các phần tử float */
     }
 
     .main-footer p {
       margin: 0;
       font-size: 14px;
+    }
+
+    /* Float Contact */
+    .float-contact {
+      position: fixed; /* Định vị cố định */
+      bottom: 20px; /* Cách đáy 20px */
+      right: 20px; /* Cách phải 20px */
+      z-index: 9999; /* Đảm bảo nó nằm trên các phần tử khác */
+    }
+
+    .float-contact div {
+      margin-bottom: 10px; /* Khoảng cách giữa các nút */
+    }
+
+    .float-contact img {
+      display: block; /* Đảm bảo ảnh không bị inline */
+      width: 50px; /* Kích thước ảnh */
+      height: 50px;
+      border-radius: 50%; /* Bo tròn ảnh */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
+      transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+    }
+
+    .float-contact img:hover {
+      transform: scale(1.1); /* Phóng to nhẹ khi hover */
     }
   </style>
 </head>
@@ -221,6 +247,24 @@
       <?php } ?>
     </div>
   </section>
+
+  <div class="float-contact">
+    <div class="chat-zalo">
+      <a href="https://zalo.me/0869733436" target="_blank">
+        <img title="Chat Zalo" src="../admin/image/zalo.png" alt="Chat Zalo">
+      </a>
+    </div>
+    <div class="chat-facebook">
+      <a href="https://www.facebook.com/khanh.nguyen.293038" target="_blank">
+        <img title="Chat Facebook" src="../admin/image/mess.png" alt="Chat Facebook">
+      </a>
+    </div>
+    <div class="call-hotline">
+      <a href="tel:0869733436">
+        <img title="Call Hotline" src="../admin/image/call2.png" alt="Call Hotline">
+      </a>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="main-footer">
