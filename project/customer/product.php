@@ -13,6 +13,9 @@
       padding: 0;
       background-color: #f5f5f5;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Đảm bảo chiều cao tối thiểu của trang là 100% chiều cao màn hình */
     }
 
     .container {
@@ -62,8 +65,9 @@
       border-radius: 5px;
     }
 
-    /* Product Detail */
+    /* Nội dung chính */
     .product-detail {
+      flex: 1; /* Đẩy footer xuống dưới cùng */
       padding: 50px 0;
       background-color: #fff;
     }
@@ -146,6 +150,7 @@
       color: white;
       text-align: center;
       padding: 20px 0;
+      margin-top: auto; /* Đảm bảo footer luôn nằm ở dưới cùng */
     }
 
     .main-footer p {

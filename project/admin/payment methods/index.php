@@ -50,6 +50,31 @@
             background-color: #5bc0de;
             color: white;
         }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 16px;
+            margin: 20px 0;
+            padding: 10px 15px;
+            background-color: #f8f9fa; /* Màu nền nhạt */
+            border-radius: 5px;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #007bff; /* Màu xanh cho liên kết */
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #0056b3; /* Màu xanh đậm hơn khi hover */
+        }
+
+        .breadcrumb span {
+            color: #6c757d; /* Màu xám cho văn bản không phải liên kết */
+        }
     </style>
     <script>
         // Hàm hiển thị modal
@@ -92,6 +117,9 @@
         include_once "../Connection/close.php";
         // Hiển thị dữ liệu
     ?>
+    <p class="breadcrumb">
+        <a href="#">Trang admin</a> > <a href="#">Danh sách phuong thức thanh toán</a>
+    </p>
     <a href="create.php">
         <button class="button-name" role="button">Thêm phương thức thanh toán</button>
     </a>
