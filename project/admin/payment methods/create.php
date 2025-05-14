@@ -99,7 +99,7 @@
         ?>
     </div>
 
-    <form method="post" action="store.php">
+    <form method="post" action="type.php">
         <h1>Thêm Phương Thức Thanh Toán</h1>
         <label for="name">Tên kiểu thanh toán:</label>
         <input type="text" name="name" id="name" placeholder="Nhập tên phương thức thanh toán">

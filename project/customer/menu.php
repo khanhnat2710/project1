@@ -63,6 +63,51 @@
       border-radius: 5px;
     }
 
+    /* Thanh tìm kiếm trên header */
+    .search-bar-container {
+      width: 100%;
+      background: #fff;
+      padding: 18px 0 8px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search-bar-form {
+      display: flex;
+      max-width: 500px;
+      width: 100%;
+      background: #f1f1f1;
+      border-radius: 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 4px 8px;
+    }
+
+    .search-bar-form input[type="text"] {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 10px 14px;
+      font-size: 15px;
+      border-radius: 25px 0 0 25px;
+      outline: none;
+    }
+
+    .search-bar-form button {
+      background: #d70018;
+      color: #fff;
+      border: none;
+      padding: 0 22px;
+      border-radius: 0 25px 25px 0;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .search-bar-form button:hover {
+      background: #b00014;
+    }
+
     /* Banner Section */
     .banner-section {
       margin: 20px 0;
@@ -156,14 +201,24 @@
 </head>
 <body>
   <?php
-        // Mở kết nối đến DB
-        include_once "../admin/Connection/open.php";
-        // Viết SQL lấy dữ liệu
-        $sql = "SELECT products.*, brands.NAME AS brand_name, types.NAME AS type_name FROM products INNER JOIN brands ON brands.BRAND_ID = products.BRAND_ID INNER JOIN types ON types.TYPE_ID = products.TYPE_ID";
-        // Chạy query
-        $products = mysqli_query($connection, $sql);
-        // Đóng kết nối đến DB
-        include_once "../admin/Connection/close.php";
+    // Mở kết nối đến DB
+    include_once "../admin/Connection/open.php";
+    //Lấy giá trị đang tìm kiếm
+    if(isset($_GET['keyword'])){
+        $keyword = $_GET['keyword'];
+    } else {
+        $keyword = '';
+    }
+    // Viết SQL lấy dữ liệu
+    $sql = "SELECT products.*, brands.NAME AS brand_name, types.NAME AS type_name 
+            FROM products INNER JOIN brands 
+            ON brands.BRAND_ID = products.BRAND_ID INNER JOIN types 
+            ON types.TYPE_ID = products.TYPE_ID
+            WHERE products.NAME LIKE '%$keyword%'";
+    // Chạy query
+    $products = mysqli_query($connection, $sql);
+    // Đóng kết nối đến DB
+    include_once "../admin/Connection/close.php";
   ?>
 
   <!-- Header -->
@@ -180,6 +235,14 @@
       </nav>
     </div>
   </header>
+
+  <!-- Thanh tìm kiếm -->
+  <div class="search-bar-container">
+    <form class="search-bar-form" method="get" action="search.php">
+      <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm..." value="<?php echo isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : ''; ?>">
+      <button type="submit">Tìm kiếm</button>
+    </form>
+  </div>
 
   <!-- Banner Section -->
   <section class="banner-section">
