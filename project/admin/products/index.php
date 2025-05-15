@@ -1,10 +1,10 @@
 <?php
-        session_start();
-        if(empty($_SESSION['USERNAME'])){
-            header('Location: ../login/login.php');
-        }
-        include_once "../../layouts/header.php";
-    ?>
+    session_start();
+    if(empty($_SESSION['USERNAME'])){
+        header('Location: ../login/login.php');
+    }
+    include_once "../../layouts/header.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,6 +88,7 @@
             <th>Kiểu máy</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         <?php
             foreach ($products as $product){
@@ -135,6 +136,11 @@
                 <td>
                     <a href="edit.php?id=<?php echo $product["PRD_ID"]; ?>">
                         <button class="vista-button"><div>Chỉnh sửa</div></button>
+                    </a>
+                </td>
+                <td>
+                    <a href="../cartAdmin/addToCart.php?id=<?php echo $product["PRD_ID"]; ?>">
+                        <button class="vista-button"><div>Thêm vào giỏ hàng</div></button>
                     </a>
                 </td>
                 <td>
