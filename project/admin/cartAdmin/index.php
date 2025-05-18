@@ -56,8 +56,8 @@
                                             <div class="media">
                                                 <a class="thumbnail pull-left">
                                                     <img class="media-object"
-                                                         src="../image/<?php echo $product['IMAGE']; ?>"
-                                                         style="width: 72px; height: 72px;">
+                                                        src="../image/<?php echo $product['IMAGE']; ?>"
+                                                        style="width: 72px; height: 72px;">
                                                 </a>
                                                 <div class="media-body">
                                                     <h4 class="media-heading"><a><?php echo $product['NAME']; ?></a></h4>

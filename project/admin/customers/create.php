@@ -45,6 +45,7 @@
 
         /* Định dạng cho các input, textarea và radio */
         form input[type="text"],
+        form input[type="password"],
         form textarea {
             width: 100%;
             padding: 12px;
@@ -57,6 +58,7 @@
         }
 
         form input[type="text"]:focus,
+        form input[type="password"]:focus,
         form textarea:focus {
             border-color: #5bc0de;
             outline: none;
@@ -122,6 +124,9 @@
         
         <label for="phone">SĐT:</label>
         <input type="text" name="phone" id="phone" placeholder="Nhập số điện thoại">
+        
+        <label for="password">Mật khẩu:</label>
+        <input type="password" name="password" id="password" placeholder="Nhập mật khẩu">
         
         <label for="address">Địa chỉ:</label>
         <textarea name="address" id="address" placeholder="Nhập địa chỉ"></textarea>

@@ -45,6 +45,7 @@
 
         /* Định dạng cho các input, textarea và radio */
         form input[type="text"],
+        form input[type="password"],
         form textarea {
             width: 100%;
             padding: 12px;
@@ -57,6 +58,7 @@
         }
 
         form input[type="text"]:focus,
+        form input[type="password"]:focus,
         form textarea:focus {
             border-color: #5bc0de;
             outline: none;
@@ -140,6 +142,9 @@
 
             <label for="email">Email:</label>
             <input type="text" name="email" id="email" value="<?php echo $customer['EMAIL']; ?>">
+
+            <label for="password">Mật khẩu:</label>
+            <input type="password" name="password" id="password" value="<?php echo $customer['PASSWORD']; ?>">
 
             <label for="gender">Giới tính:</label>
             <input type="radio" name="gender" id="gender_male" value="Nam" <?php echo ($customer['GENDER'] == 'Nam') ? 'checked' : ''; ?>> Nam
