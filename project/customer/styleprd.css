@@ -175,3 +175,23 @@
     .float-contact img:hover {
       transform: scale(1.1); /* Phóng to nhẹ khi hover */
     }
+
+    /* Nút đăng nhập, đăng xuất, giỏ hàng giống style2.css */
+    .cart-btn, .login-btn {
+      display: inline-block;
+      padding: 7px 18px;
+      background: #fff;
+      color: #d70018;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid #d70018;
+      margin-left: 20px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .cart-btn:hover, .login-btn:hover {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }

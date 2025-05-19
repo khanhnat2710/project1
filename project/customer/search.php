@@ -9,9 +9,9 @@
 <body>
     <!-- Header -->
     <header class="main-header">
-        <div class="container">
-            <h1 class="logo">SalephoneS</h1>
-            <nav class="main-nav">
+        <div class="container" style="display: flex; align-items: center;">
+            <h1 class="logo" style="margin-left: 20px;">SalephoneS</h1>
+            <nav class="main-nav" style="margin-left: 40px;">
                 <ul>
                     <li><a href="menu.php">Trang chủ</a></li>
                     <li><a href="#">Sản phẩm</a></li>
@@ -19,6 +19,16 @@
                     <li><a href="#">Liên hệ</a></li>
                 </ul>
             </nav>
+            <div style="margin-left:auto; display:flex; align-items:center;">
+                <?php
+                    session_start();
+                    if (isset($_SESSION['CUS_ID'])): ?>
+                        <a href="cartCustomer/index.php" class="cart-btn">🛒 Giỏ hàng</a>
+                        <a href="login/logout.php" class="login-btn" style="margin-left:20px;">Đăng xuất</a>
+                <?php else: ?>
+                        <a href="login/login.php" class="login-btn">Đăng nhập</a>
+                <?php endif; ?>
+            </div>
         </div>
     </header>
 
@@ -61,6 +71,24 @@
             <a href="menu.php" class="back-home-btn">Quay lại trang chủ</a>
         </div>
     </div>
+
+    <div class="float-contact">
+    <div class="chat-zalo">
+      <a href="https://zalo.me/0869733436" target="_blank">
+        <img title="Chat Zalo" src="../admin/image/zalo.png" alt="Chat Zalo">
+      </a>
+    </div>
+    <div class="chat-facebook">
+      <a href="https://www.facebook.com/khanh.nguyen.293038" target="_blank">
+        <img title="Chat Facebook" src="../admin/image/mess.png" alt="Chat Facebook">
+      </a>
+    </div>
+    <div class="call-hotline">
+      <a href="tel:0869733436">
+        <img title="Call Hotline" src="../admin/image/call2.png" alt="Call Hotline">
+      </a>
+    </div>
+  </div>
 
     <!-- Footer -->
     <footer class="main-footer">

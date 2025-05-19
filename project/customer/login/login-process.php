@@ -1,6 +1,6 @@
 <?php
     session_start();
-    //lấy username và password từ form
+    //lấy email và password từ form
     $email = $_POST["email"];
     $password = $_POST["password"];
     //Mở kết nối
@@ -11,7 +11,7 @@
     $result = mysqli_query($connection, $sql);
     //đóng kết nối
     include_once "../../admin/connection/close.php";
-    //kiểm tra username và password có đúng không
+    //kiểm tra email và password có đúng không
     foreach ($result as $row){
         if($row['count_id'] == 0 ){
             //quay về trang login
@@ -21,7 +21,7 @@
             $_SESSION['CUS_ID'] = $row['CUS_ID'];
             $_SESSION['EMAIL'] = $row['EMAIL'];
             $_SESSION['PASSWORD'] = $row['PASSWORD'];
-            //quay về trang admin
+            //quay về trang chủ
             header("location: ../menu.php");
         }
     }

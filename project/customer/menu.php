@@ -1,15 +1,17 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SalephoneS - Trang Chủ</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <?php
-    session_start();
     // Mở kết nối đến DB
     include_once "../admin/Connection/open.php";
     //Lấy giá trị đang tìm kiếm
@@ -32,23 +34,26 @@
 
   <!-- Header -->
   <header class="main-header">
-    <div class="container" style="display: flex; align-items: center;">
-      <h1 class="logo" style="margin-left: 20px;">SalephoneS</h1>
-      <nav class="main-nav" style="margin-left: 40px;">
-        <ul>
-          <li><a href="menu.php" class="active">Trang chủ</a></li>
-          <li><a href="#">Sản phẩm</a></li>
-          <li><a href="#">Khuyến mãi</a></li>
-          <li><a href="#">Liên hệ</a></li>
-        </ul>
-      </nav>
+  <div class="container" style="display: flex; align-items: center;">
+    <h1 class="logo" style="margin-left: 20px;">SalephoneS</h1>
+    <nav class="main-nav" style="margin-left: 40px;">
+      <ul>
+        <li><a href="menu.php" class="active">Trang chủ</a></li>
+        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="#">Khuyến mãi</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <div style="margin-left:auto; display:flex; align-items:center;">
       <?php if (isset($_SESSION['CUS_ID'])): ?>
-        <a href="login/logout.php" class="login-btn" style="margin-left:auto;">Đăng xuất</a>
+        <a href="cartCustomer/index.php" class="cart-btn">🛒 Giỏ hàng</a>
+        <a href="login/logout.php" class="login-btn" style="margin-left:20px;">Đăng xuất</a>
       <?php else: ?>
-        <a href="login/login.php" class="login-btn" style="margin-left:auto;">Đăng nhập</a>
+        <a href="login/login.php" class="login-btn">Đăng nhập</a>
       <?php endif; ?>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Thanh tìm kiếm -->
   <div class="search-bar-container">

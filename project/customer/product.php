@@ -26,9 +26,9 @@
 
   <!-- Header -->
   <header class="main-header">
-    <div class="container">
-      <h1 class="logo">SalephoneS</h1>
-      <nav class="main-nav">
+    <div class="container" style="display: flex; align-items: center;">
+      <h1 class="logo" style="margin-left: 20px;">SalephoneS</h1>
+      <nav class="main-nav" style="margin-left: 40px;">
         <ul>
           <li><a href="menu.php">Trang chủ</a></li>
           <li><a href="#">Sản phẩm</a></li>
@@ -36,6 +36,17 @@
           <li><a href="#">Liên hệ</a></li>
         </ul>
       </nav>
+      <div style="margin-left:auto; display:flex; align-items:center;">
+        <?php
+          session_start();
+          // Dùng đúng tên session như menu.php
+          if (isset($_SESSION['CUS_ID'])): ?>
+            <a href="cartCustomer/index.php" class="cart-btn">🛒 Giỏ hàng</a>
+            <a href="login/logout.php" class="login-btn" style="margin-left:20px;">Đăng xuất</a>
+        <?php else: ?>
+            <a href="login/login.php" class="login-btn">Đăng nhập</a>
+        <?php endif; ?>
+      </div>
     </div>
   </header>
 
@@ -62,7 +73,9 @@
           </ul>
           <div class="action-buttons">
             <button class="buy-now">Mua ngay</button>
-            <button class="add-cart">Thêm vào giỏ hàng</button>
+            <a href="cartCustomer/addToCart.php?id=<?php echo $product["PRD_ID"]; ?>">
+              <button class="add-cart">Thêm vào giỏ hàng</button>
+            </a>
           </div>
         </div>
       </div>
