@@ -98,9 +98,10 @@
                                         <button type="submit" name="update" class="btn btn-primary">
                                             <span class="glyphicon glyphicon-refresh"></span> Cập nhật giỏ hàng
                                         </button>
-                                        <button type="submit" name="order" class="btn btn-success">
+                                        <a href="" class="btn btn-success">
                                             Đặt hàng <span class="glyphicon glyphicon-ok"></span>
-                                        </button>
+                                        </a>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

@@ -11,7 +11,7 @@
     include_once "../connection/open.php";
     //viết sql
     $sql = "INSERT INTO customers(name, email, password, gender, address, phone_number, description)
-     VALUES ('$name', '$email', '$password', '$gender', '$address', '$phone_number', '$description')";
+            VALUES ('$name', '$email', '$password', '$gender', '$address', '$phone_number', '$description')";
     //Chạy sql
     mysqli_query($connection, $sql);
     //Đóng kết nối
