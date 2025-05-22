@@ -51,6 +51,7 @@
         <a href="login/logout.php" class="login-btn" style="margin-left:20px;">Đăng xuất</a>
       <?php else: ?>
         <a href="login/login.php" class="login-btn">Đăng nhập</a>
+        <a href="new customer/create.php" class="login-btn">Đăng ký</a>
       <?php endif; ?>
     </div>
   </div>
