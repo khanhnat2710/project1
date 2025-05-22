@@ -47,6 +47,7 @@
     <div style="margin-left:auto; display:flex; align-items:center;">
       <?php if (isset($_SESSION['CUS_ID'])): ?>
         <a href="cartCustomer/index.php" class="cart-btn">🛒 Giỏ hàng</a>
+        <a href="order/orderList.php" class="login-btn" style="margin-left:20px;">Đơn hàng của tôi</a>
         <a href="login/logout.php" class="login-btn" style="margin-left:20px;">Đăng xuất</a>
       <?php else: ?>
         <a href="login/login.php" class="login-btn">Đăng nhập</a>

@@ -1,9 +1,9 @@
 <?php
     session_start();
     //Lấy giỏ hàng
-    $carts = $_SESSION['cart_customer'];
+    $carts = $_SESSION['cart'];
     //Mở kết nốt
-    include_once "../../admin/connection/open.php";
+    include_once "../connection/open.php";
     //Lấy ngày đặt hàng là ngày hôm nay
     $orderDate = date("Y-m-d");
     //order status mặc định 0 là đang chờ xử lý, 1 đã sử lý, 2 là đang giao hàng, 3 là đã giao hàng, 4 hủy hàng
@@ -49,9 +49,9 @@
         mysqli_query($connection, $sqlSaveOrderDetails);
     }
     //Đóng kết nối
-    include_once "../../admin/connection/close.php";
+    include_once "../connection/close.php";
     //Xóa giỏ hàng
-    unset($_SESSION['cart_customer']);
+    unset($_SESSION['cart']);
     //QUay về trang danh sách đơn hàng
     header("Location: orderList.php");
 ?>

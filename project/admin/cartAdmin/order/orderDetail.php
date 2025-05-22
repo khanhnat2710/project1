@@ -42,7 +42,7 @@
             $orderId = $_GET['id'];
 
             // Mở kết nối
-            include_once "../../admin/connection/open.php";
+            include_once "../../connection/open.php";
 
             // Lấy chi tiết sản phẩm
             $sql = "SELECT products.PRD_ID, products.NAME, products.IMAGE, order_detail.PRICE, order_detail.QUANTITY 
@@ -67,7 +67,7 @@
             }
 
             // Đóng kết nối
-            include_once "../../admin/connection/close.php";
+            include_once "../../connection/close.php";
 
             // Hiển thị danh sách sản phẩm
             $tongTien = 0;
@@ -78,7 +78,7 @@
             <tr class="align-middle text-center">
                 <td><?php echo $orderDetail['NAME']; ?></td>
                 <td>
-                    <img src="../../admin/image/<?php echo $orderDetail['IMAGE']; ?>" 
+                    <img src="../../image/<?php echo $orderDetail['IMAGE']; ?>" 
                          alt="<?php echo $orderDetail['NAME']; ?>" 
                          class="order-image">
                 </td>
@@ -104,8 +104,8 @@
             <a href="orderList.php" class="btn btn-outline-secondary me-2">← Quay lại danh sách đơn hàng</a>
 
             <!-- Nút hủy nếu đơn hàng đang chờ xử lý -->
-            <?php if ($rowStatus['ORDER_STATUS'] == 0): ?>
-                <a href="cancelOrder.php?id=<?php echo $orderId; ?>" class="btn btn-danger">Hủy đơn hàng</a>
+            <?php if ($rowStatus['ORDER_STATUS'] < 3): ?>
+                <a href="updateStatus.php?id=<?php echo $orderId; ?>" class="btn btn-danger">Cập nhật trạng thái đơn hàng</a>
             <?php endif; ?>
         </div>
     </div>

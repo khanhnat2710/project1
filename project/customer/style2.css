@@ -71,8 +71,9 @@
     }
 
     .login-btn:hover {
-      background: #d70018;
+      background: #111;              /* Màu đen */
       color: #fff;
+      border-color: #111;
     }
 
     .cart-btn {

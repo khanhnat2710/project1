@@ -7,13 +7,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách đơn hàng</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
 <div class="container my-5">
-    <h2 class="text-center mb-4 text-primary">Danh sách đơn hàng của bạn</h2>
+    <h2 class="text-center mb-4 text-primary">Danh sách đơn hàng</h2>
+
+    <!-- Form tìm kiếm -->
+    <form method="get" action="" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="keyword" class="form-control" placeholder="Tìm theo tên khách hàng..." value="<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>">
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+        </div>
+    </form>
 
     <table class="table table-bordered table-hover shadow-sm bg-white">
         <thead class="table-dark">
@@ -27,18 +34,43 @@
         </thead>
         <tbody>
         <?php
-            // Lấy id của người đang đặt hàng
-            $customerID = $_SESSION['CUS_ID'];
             // Mở kết nối
-            include_once "../../admin/connection/open.php";
-            // Viết sql
+            include_once "../../connection/open.php";
+
+            // Xử lý tìm kiếm
+            $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+
+            // Số bản ghi mỗi trang
+            $recordsPerPage = 5;
+
+            // Lấy tổng số bản ghi
+            $sqlCount = "SELECT COUNT(*) AS total FROM orders 
+                         INNER JOIN customers ON customers.CUS_ID = orders.CUS_ID
+                         WHERE customers.NAME LIKE '%$keyword%'";
+            $resultCount = mysqli_query($connection, $sqlCount);
+            $rowCount = mysqli_fetch_assoc($resultCount);
+            $totalRecords = $rowCount['total'];
+
+            // Tổng số trang
+            $totalPages = ceil($totalRecords / $recordsPerPage);
+
+            // Trang hiện tại
+            $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+            // Vị trí bắt đầu
+            $start = ($page - 1) * $recordsPerPage;
+
+            // Câu lệnh truy vấn dữ liệu
             $sql = "SELECT orders.*, customers.NAME FROM orders
                     INNER JOIN customers ON customers.CUS_ID = orders.CUS_ID
-                    WHERE orders.CUS_ID = '$customerID'";
-            // Chạy sql
+                    WHERE customers.NAME LIKE '%$keyword%'
+                    LIMIT $start, $recordsPerPage";
+
             $orders = mysqli_query($connection, $sql);
+
             // Đóng kết nối
-            include_once "../../admin/connection/close.php";
+            include_once "../../connection/close.php";
+
             // Hiển thị
             foreach ($orders as $order){
         ?>
@@ -48,7 +80,6 @@
                 <td><?php echo $order['DELIVERY_LOCATION']; ?></td>
                 <td>
                     <?php
-                        // Xử lý hiển thị trạng thái đơn hàng
                         if($order['ORDER_STATUS'] == 0){
                             echo 'Đang chờ xử lý';
                         } else if($order['ORDER_STATUS'] == 1){
@@ -63,7 +94,6 @@
                     ?>
                 </td>
                 <td>
-                    <!-- Link tới trang chi tiết đơn hàng -->
                     <a href="orderDetail.php?id=<?php echo $order['ORDER_ID']; ?>" class="btn btn-info btn-sm">
                         Xem chi tiết
                     </a>
@@ -75,12 +105,24 @@
         </tbody>
     </table>
 
+    <!-- Phân trang -->
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            <?php
+                for($i = 1; $i <= $totalPages; $i++){
+                    $isActive = ($i == $page) ? 'active' : '';
+                    $url = "?page=$i" . ($keyword ? "&keyword=$keyword" : '');
+                    echo "<li class='page-item $isActive'><a class='page-link' href='$url'>$i</a></li>";
+                }
+            ?>
+        </ul>
+    </nav>
+
     <div class="text-center mt-4">
-        <a href="../menu.php" class="btn btn-secondary">Quay về trang chủ</a>
+        <a href="../../products/index.php" class="btn btn-secondary">Quay về trang chủ</a>
     </div>
 </div>
 
-<!-- Bootstrap JS (nếu có sử dụng dropdown/modal sau này) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
