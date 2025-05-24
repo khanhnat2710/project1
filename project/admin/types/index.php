@@ -80,9 +80,11 @@
         ?>
             <tr>
                 <td>
+                    <!-- Hiển thị id của KIỂU MÁY -->
                     <?php echo $row['TYPE_ID']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị tên của kiểu máy -->
                     <?php echo $row['NAME']; ?>
                 </td>
                 <td>

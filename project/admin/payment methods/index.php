@@ -80,9 +80,11 @@
         ?>
             <tr>
                 <td>
+                    <!-- Hiển thị id của phuong thức thanh toán -->
                     <?php echo $row['PAY_ID']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị tên của phương thức thanh toán -->
                     <?php echo $row['NAME']; ?>
                 </td>
                 <td>

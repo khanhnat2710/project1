@@ -103,7 +103,7 @@
             <!-- Nút quay lại -->
             <a href="orderList.php" class="btn btn-outline-secondary me-2">← Quay lại danh sách đơn hàng</a>
 
-            <!-- Nút hủy nếu đơn hàng đang chờ xử lý -->
+            <!-- Hiển thị nút cập nhật trạng thái đơn hàng -->
             <?php if ($rowStatus['ORDER_STATUS'] < 3): ?>
                 <a href="updateStatus.php?id=<?php echo $orderId; ?>" class="btn btn-danger">Cập nhật trạng thái đơn hàng</a>
             <?php endif; ?>

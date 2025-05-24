@@ -1,8 +1,10 @@
 <?php
 session_start();
+// Kiểm tra xem người dùng đã đăng nhập hay chưa
 if (empty($_SESSION['USERNAME'])) {
     header('Location: ../login/login.php');
 }
+// Header
 include_once "../../layouts/header.php";
 ?>
 <!DOCTYPE html>
@@ -86,21 +88,27 @@ include_once "../../layouts/header.php";
             ?>
             <tr>
                 <td>
+                    <!-- Hiển thị id của trang admin -->
                     <?php echo $admin['ADMIN_ID']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị tên của admin -->
                     <?php echo $admin['NAME']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị email của admin -->
                     <?php echo $admin['EMAIL']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị tên đăng nhập của admin -->
                     <?php echo $admin['USERNAME']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị địa chỉ của admin -->
                     <?php echo $admin['ADDRESS']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị vai trò của admin -->
                     <?php
                     if ($admin['ROLE'] == 0) {
                         echo "Admin";

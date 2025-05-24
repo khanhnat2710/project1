@@ -85,24 +85,31 @@
         ?>
             <tr>
                 <td>
+                    <!-- Hiển thị id của customer -->
                     <?php echo $customer['CUS_ID']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị tên của customer -->
                     <?php echo $customer['NAME']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị email của customer -->
                     <?php echo $customer['EMAIL']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị giới tính của customer -->
                     <?php echo $customer['GENDER']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị số điện thaoi của customer -->
                     <?php echo $customer['PHONE_NUMBER']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị địa chỉ của customer -->
                     <?php echo $customer['ADDRESS']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị mô tả của customer -->
                     <?php echo $customer['DESCRIPTION']; ?>
                 </td>
                 <td>

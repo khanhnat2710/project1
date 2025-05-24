@@ -1,8 +1,10 @@
 <?php
     session_start();
+    //Kiểm tra xem người dùng đăng nhaaph hãy chưa
     if(empty($_SESSION['USERNAME'])){
         header('Location: ../login/login.php');
     }
+    //header
     include_once "../../layouts/header.php";
 ?>
 <!DOCTYPE html>
@@ -80,9 +82,11 @@
         ?>
             <tr>
                 <td>
+                    <!-- Hiển thị id của brands -->
                     <?php echo $row['BRAND_ID']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị tên của brand -->
                     <?php echo $row['NAME']; ?>
                 </td>
                 <td>
@@ -102,6 +106,7 @@
         ?>
     </table>
 
+    <!-- Hiển thị phân trang và tìm kiếm -->
     <div class="pagination">
         <?php
             for($page = 1; $page <= $pages; $page++){

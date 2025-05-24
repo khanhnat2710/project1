@@ -95,42 +95,55 @@
         ?>
             <tr>
                 <td style="text-align: center;">
+                    <!-- Hiển thị id của sản phẩm -->
                     <?php echo $product['PRD_ID']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị tên của sản phẩm -->
                     <?php echo $product['NAME']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị ảnh của sản phẩm -->
                     <img src="../image/<?php echo $product['IMAGE']; ?>" alt="Ảnh sản phẩm" width="100px" height="100px">
                 </td>
                 <td style="text-align: center;">
+                    <!-- Hiển thị ram của sản phẩm -->
                     <?php echo $product['RAM']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị chip của sản phẩm -->
                     <?php echo $product['CHIP']; ?>
                 </td>
                 <td style="text-align: center;">
+                    <!-- Hiển thị rom của sản phẩm -->
                     <?php echo $product['ROM']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị kích cỡ của màn hình -->
                     <?php echo $product['SCREEN_SIZE']; ?>
                 </td>
                 <td>
+                    <!-- Hiển thị camera của sản phẩm -->
                     <?php echo $product['CAMERA']; ?>
                 </td>
                 <td style="text-align: center;">
+                    <!-- Hiển thị màu sắc của sản phẩm -->
                     <?php echo $product['COLOR']; ?>
                 </td>
                 <td style="text-align: center;">
+                    <!-- Hiển thị giá của sản phẩm -->
                     <?php echo $product['PRICE']; ?>
                 </td>
                 <td style="text-align: center;">
+                    <!-- Hiển thị số lượng của sản phẩm -->
                     <?php echo $product['QUANTITY']; ?>
                 </td>
                 <td style="text-align: center;">
+                    <!-- Hiển thị nhãn hàng của sản phẩm -->
                     <?php echo $product['brand_name']; ?>
                 </td>
                 <td style="text-align: center;">
+                    <!-- Hiển thị kiểu máy của sản phẩm -->
                     <?php echo $product['type_name']; ?>
                 </td>
                 <td>
