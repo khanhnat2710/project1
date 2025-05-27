@@ -9,6 +9,7 @@
   <title>SalephoneS - Trang Chủ</title>
   <link rel="stylesheet" href="style2.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <?php
@@ -34,28 +35,34 @@
 
   <!-- Header -->
   <header class="main-header">
-  <div class="container" style="display: flex; align-items: center;">
-    <h1 class="logo" style="margin-left: 20px;">SalephoneS</h1>
-    <nav class="main-nav" style="margin-left: 40px;">
-      <ul>
-        <li><a href="menu.php" class="active">Trang chủ</a></li>
-        <li><a href="#">Sản phẩm</a></li>
-        <li><a href="#">Khuyến mãi</a></li>
-        <li><a href="#">Liên hệ</a></li>
-      </ul>
-    </nav>
-    <div style="margin-left:auto; display:flex; align-items:center;">
-      <?php if (isset($_SESSION['CUS_ID'])): ?>
-        <a href="cartCustomer/index.php" class="cart-btn">🛒 Giỏ hàng</a>
-        <a href="order/orderList.php" class="login-btn" style="margin-left:20px;">Đơn hàng của tôi</a>
-        <a href="login/logout.php" class="login-btn" style="margin-left:20px;">Đăng xuất</a>
-      <?php else: ?>
-        <a href="login/login.php" class="login-btn">Đăng nhập</a>
-        <a href="new customer/create.php" class="login-btn">Đăng ký</a>
-      <?php endif; ?>
+    <div class="container" style="display: flex; align-items: center;">
+      <h1 class="logo" style="margin-left: 20px;">SalephoneS</h1>
+      <nav class="main-nav" style="margin-left: 40px;">
+        <ul>
+          <li><a href="menu.php" class="active">Trang chủ</a></li>
+          <li><a href="#">Sản phẩm</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <div style="margin-left:auto; display:flex; align-items:center;">
+        <?php if (isset($_SESSION['CUS_ID'])): ?>
+          <!-- Dropdown menu icon user -->
+          <div class="dropdown">
+            <i class="fas fa-user-circle user-icon"></i>
+            <div class="dropdown-content">
+              <a href="cartCustomer/index.php"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+              <a href="order/orderList.php"><i class="fa-solid fa-truck"></i> Đơn hàng của tôi</a>
+              <a href="login/logout.php"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+            </div>
+          </div>
+        <?php else: ?>
+          <a href="login/login.php" class="login-btn">Đăng nhập</a>
+          <a href="new customer/create.php" class="login-btn">Đăng ký</a>
+        <?php endif; ?>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <!-- Thanh tìm kiếm -->
   <div class="search-bar-container">

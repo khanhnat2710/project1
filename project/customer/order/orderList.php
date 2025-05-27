@@ -9,8 +9,45 @@
     <title>Danh sách đơn hàng</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome (nếu cần) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Thêm style2.css nếu có -->
+    <link rel="stylesheet" href="../style2.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light">
+
+<!-- Header -->
+  <header class="main-header">
+    <div class="container" style="display: flex; align-items: center;">
+      <h1 class="logo" style="margin-left: 20px;">SalephoneS</h1>
+      <nav class="main-nav" style="margin-left: 40px;">
+        <ul>
+          <li><a href="../menu.php" class="active">Trang chủ</a></li>
+          <li><a href="#">Sản phẩm</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <div style="margin-left:auto; display:flex; align-items:center;">
+        <?php if (isset($_SESSION['CUS_ID'])): ?>
+          <!-- Dropdown menu icon user -->
+          <div class="dropdown">
+            <i class="fas fa-user-circle user-icon"></i>
+            <div class="dropdown-content">
+              <a href="../cartCustomer/index.php"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+              <a href="order/orderList.php"><i class="fa-solid fa-truck"></i> Đơn hàng của tôi</a>
+              <a href="../login/logout.php"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+            </div>
+          </div>
+        <?php else: ?>
+          <a href="../login/login.php" class="login-btn">Đăng nhập</a>
+          <a href="../new customer/create.php" class="login-btn">Đăng ký</a>
+        <?php endif; ?>
+      </div>
+    </div>
+  </header>
 
 <div class="container my-5">
     <h2 class="text-center mb-4 text-primary">Danh sách đơn hàng của bạn</h2>
@@ -80,7 +117,7 @@
     </div>
 </div>
 
-<!-- Bootstrap JS (nếu có sử dụng dropdown/modal sau này) -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
