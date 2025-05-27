@@ -86,18 +86,29 @@
                                 <td class="text-right" colspan="2"><h3><strong><?php echo number_format($tongtien, 0, ',', '.'); ?> đ</strong></h3></td>
                             </tr>
                             <tr>
-                                <td colspan="3"></td>
-                                <td colspan="2">
-                                    <div style="display: flex; gap: 10px;">
+                                <td colspan="5" class="text-right" style="vertical-align: middle;">
+                                    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 10px;">
+                                        <!-- Chọn phương thức thanh toán -->
+                                        <select name="pay_id" class="form-control" style="width:220px; display:inline-block;" required>
+                                            <option value="">-- Chọn phương thức thanh toán --</option>
+                                            <?php 
+                                                $sql = "SELECT * FROM payment_methods";
+                                                $paymentMethods = mysqli_query($connection, $sql);
+                                                foreach ($paymentMethods as $method): ?>
+                                                <option value="<?php echo $method['PAY_ID']; ?>">
+                                                    <?php echo $method['NAME']; ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
                                         <a href="../menu.php" class="btn btn-default">
                                             <span class="glyphicon glyphicon-shopping-cart"></span> Tiếp tục mua sắm
                                         </a>
                                         <button type="submit" name="update" class="btn btn-primary">
                                             <span class="glyphicon glyphicon-refresh"></span> Cập nhật giỏ hàng
                                         </button>
-                                        <a href="../order/checkOut.php" class="btn btn-success">
+                                        <button type="submit" formaction="../order/checkOut.php" class="btn btn-success">
                                             Đặt hàng <span class="glyphicon glyphicon-ok"></span>
-                                        </a>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>

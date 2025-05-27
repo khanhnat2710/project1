@@ -10,6 +10,8 @@
     $orderStatus = 0;
     //Lấy id của người đặt hàng
     $customerID = $_SESSION['CUS_ID'];
+    //Lấy phương thức thanh toán
+    $payId = $_POST['pay_id'];
     //Viết sql lấy địa chỉ của người đặt hàng
     $sqlGetAddress = "SELECT ADDRESS FROM customers WHERE CUS_ID = '$customerID'";
     //Chạy sql
@@ -19,8 +21,8 @@
         $deliveryLocation = $getAddress['ADDRESS'];
     }
     //Viết sql lưu bảng orders
-    $sqlSaveOrder = "INSERT INTO orders(ORDER_DATE, ORDER_STATUS, CUS_ID, DELIVERY_LOCATION)
-                     VALUES ('$orderDate', '$orderStatus', '$customerID', '$deliveryLocation')";
+    $sqlSaveOrder = "INSERT INTO orders(ORDER_DATE, ORDER_STATUS, CUS_ID, DELIVERY_LOCATION, PAY_ID)
+                     VALUES ('$orderDate', '$orderStatus', '$customerID', '$deliveryLocation', '$payId')";
     //Chạy sql lưu orders
     mysqli_query($connection, $sqlSaveOrder);
     /* Lấy id của order vừa được tạo */

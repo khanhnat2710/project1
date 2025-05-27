@@ -58,6 +58,7 @@
                 <th scope="col">Tên Khách hàng</th>
                 <th scope="col">Ngày đặt hàng</th>
                 <th scope="col">Địa chỉ giao hàng</th>
+                <th scope="col">Phương thức thanh toán</th>
                 <th scope="col">Trạng thái đơn hàng</th>
                 <th scope="col">Chi tiết đơn hàng</th>
             </tr>
@@ -69,8 +70,10 @@
             // Mở kết nối
             include_once "../../admin/connection/open.php";
             // Viết sql
-            $sql = "SELECT orders.*, customers.NAME FROM orders
+            $sql = "SELECT orders.*, payment_methods.NAME AS pay_name, customers.NAME 
+                    FROM orders
                     INNER JOIN customers ON customers.CUS_ID = orders.CUS_ID
+                    INNER JOIN payment_methods ON payment_methods.PAY_ID = orders.PAY_ID
                     WHERE orders.CUS_ID = '$customerID'";
             // Chạy sql
             $orders = mysqli_query($connection, $sql);
@@ -83,6 +86,7 @@
                 <td><?php echo $order['NAME']; ?></td>
                 <td><?php echo $order['ORDER_DATE']; ?></td>
                 <td><?php echo $order['DELIVERY_LOCATION']; ?></td>
+                <td><?php echo $order['pay_name']; ?></td>
                 <td>
                     <?php
                         // Xử lý hiển thị trạng thái đơn hàng
