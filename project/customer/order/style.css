@@ -20,14 +20,14 @@ body {
 
 .user-icon {
     font-size: 30px;
-    color: #000000; 
+    color: #fff; 
     cursor: pointer;
     transition: all 0.3s ease;
     filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.4));
 }
 
 .user-icon:hover {
-    color: #C0C0C0; /* xanh đậm hơn khi hover */
+    color: #000000; /* xanh đậm hơn khi hover */
     transform: scale(1.15);
 }
 
