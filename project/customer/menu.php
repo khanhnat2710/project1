@@ -21,12 +21,15 @@
     } else {
         $keyword = '';
     }
+    // Danh sách ID sản phẩm nổi bật
+    $featuredIds = [1, 5, 9, 11]; 
     // Viết SQL lấy dữ liệu
     $sql = "SELECT products.*, brands.NAME AS brand_name, types.NAME AS type_name 
             FROM products INNER JOIN brands 
             ON brands.BRAND_ID = products.BRAND_ID INNER JOIN types 
             ON types.TYPE_ID = products.TYPE_ID
-            WHERE products.NAME LIKE '%$keyword%'";
+            WHERE products.NAME LIKE '%$keyword%'
+            AND products.PRD_ID IN (" . implode(',', $featuredIds) . ")";
     // Chạy query
     $products = mysqli_query($connection, $sql);
     // Đóng kết nối đến DB

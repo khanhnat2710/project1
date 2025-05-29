@@ -107,7 +107,7 @@
 /* Float Contact */
 .float-contact {
     position: fixed; /* Định vị cố định */
-    bottom: 20px; /* Cách đáy 20px */
+    bottom: 40px; /* Cách đáy 20px */
     right: 20px; /* Cách phải 20px */
     z-index: 9999; /* Đảm bảo nó nằm trên các phần tử khác */
 }
@@ -118,8 +118,8 @@ margin-bottom: 10px; /* Khoảng cách giữa các nút */
 
 .float-contact img {
 display: block; /* Đảm bảo ảnh không bị inline */
-width: 50px; /* Kích thước ảnh */
-height: 50px;
+width: 45px; /* Kích thước ảnh */
+height: 45px;
 border-radius: 50%; /* Bo tròn ảnh */
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
 transition: transform 0.3s ease; /* Hiệu ứng khi hover */

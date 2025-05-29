@@ -81,7 +81,6 @@
             <li><strong>Số lượng hàng còn lại:</strong> <?php echo $product['QUANTITY']; ?></li>
           </ul>
           <div class="action-buttons">
-            <button class="buy-now">Mua ngay</button>
             <a href="cartCustomer/addToCart.php?id=<?php echo $product["PRD_ID"]; ?>">
               <button class="add-cart">Thêm vào giỏ hàng</button>
             </a>
