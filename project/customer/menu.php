@@ -45,6 +45,7 @@
           <li><a href="menu.php" class="active">Trang chủ</a></li>
           <li><a href="#">Sản phẩm</a></li>
           <li><a href="#">Liên hệ</a></li>
+          <li><a href="#">Địa chỉ</a></li>
         </ul>
       </nav>
 
