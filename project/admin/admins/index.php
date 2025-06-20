@@ -85,7 +85,7 @@ include_once "../../layouts/header.php";
         </tr>
         <?php
         foreach ($admins as $admin) {
-            ?>
+        ?>
             <tr>
                 <td>
                     <!-- Hiển thị id của trang admin -->
@@ -116,8 +116,6 @@ include_once "../../layouts/header.php";
                         echo "Quản lý";
                     } else if ($admin['ROLE'] == 2) {
                         echo "Quản lý kho hàng";
-                    } else {
-                        echo "Unknown";
                     }
                     ?>
                 </td>
@@ -135,7 +133,7 @@ include_once "../../layouts/header.php";
                     </button>
                 </td>
             </tr>
-            <?php
+        <?php
         }
         ?>
     </table>

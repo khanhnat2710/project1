@@ -138,3 +138,25 @@ body {
   margin: 0;
   font-size: 14px;
 }
+
+/* Nút xem thêm */
+.btn-xem-them {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 22px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-xem-them:hover {
+  background: #1251a3;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-xem-them i {
+  margin-left: 6px;
+}

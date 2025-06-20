@@ -7,11 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách đơn hàng</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome (nếu cần) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Thêm style2.css nếu có -->
     <link rel="stylesheet" href="../style2.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
@@ -74,7 +71,8 @@
                     FROM orders
                     INNER JOIN customers ON customers.CUS_ID = orders.CUS_ID
                     INNER JOIN payment_methods ON payment_methods.PAY_ID = orders.PAY_ID
-                    WHERE orders.CUS_ID = '$customerID'";
+                    WHERE orders.CUS_ID = '$customerID'
+                    ORDER BY orders.ORDER_DATE DESC";
             // Chạy sql
             $orders = mysqli_query($connection, $sql);
             // Đóng kết nối

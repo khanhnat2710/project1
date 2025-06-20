@@ -9,6 +9,21 @@ session_start();
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="stylesea.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .main-footer {
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -18,8 +33,8 @@ session_start();
       <nav class="main-nav" style="margin-left: 40px;">
         <ul>
           <li><a href="menu.php" class="active">Trang chủ</a></li>
-          <li><a href="#">Sản phẩm</a></li>
-          <li><a href="#">Liên hệ</a></li>
+          <li><a href="productList.php">Sản phẩm</a></li>
+          <li><a href="contact.php">Liên hệ</a></li>
         </ul>
       </nav>
       <!-- Thanh tìm kiếm -->

@@ -35,8 +35,8 @@
       <nav class="main-nav" style="margin-left: 40px;">
         <ul>
           <li><a href="menu.php" class="active">Trang chủ</a></li>
-          <li><a href="#">Sản phẩm</a></li>
-          <li><a href="#">Liên hệ</a></li>
+          <li><a href="productList.php">Sản phẩm</a></li>
+          <li><a href="contact.php">Liên hệ</a></li>
         </ul>
       </nav>
 
