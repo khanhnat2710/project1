@@ -22,8 +22,8 @@
       <nav class="main-nav" style="margin-left: 40px;">
         <ul>
           <li><a href="../menu.php" class="active">Trang chủ</a></li>
-          <li><a href="#">Sản phẩm</a></li>
-          <li><a href="#">Liên hệ</a></li>
+          <li><a href="../productList.php">Sản phẩm</a></li>
+          <li><a href="../contact.php">Liên hệ</a></li>
         </ul>
       </nav>
 
@@ -72,7 +72,9 @@
                     INNER JOIN customers ON customers.CUS_ID = orders.CUS_ID
                     INNER JOIN payment_methods ON payment_methods.PAY_ID = orders.PAY_ID
                     WHERE orders.CUS_ID = '$customerID'
-                    ORDER BY orders.ORDER_DATE DESC";
+                    ORDER BY 
+                        FIELD(orders.ORDER_STATUS, 0, 1, 2, 3, 4),
+                        orders.ORDER_DATE DESC";
             // Chạy sql
             $orders = mysqli_query($connection, $sql);
             // Đóng kết nối

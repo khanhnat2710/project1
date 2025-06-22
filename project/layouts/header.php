@@ -13,7 +13,7 @@
           <li><a href="/php/project/admin/products/index.php" class="nav-link px-2 text-white">Sản phẩm</a></li>
           <li><a href="/php/project/admin/customers/index.php" class="nav-link px-2 text-white">Khách hàng</a></li>
           <li><a href="/php/project/admin/admins/index.php" class="nav-link px-2 text-white">admin</a></li>
-          <li><a href="/php/project/admin/cartAdmin/index.php" class="nav-link px-2 text-white">Giỏ hàng</a></li>
+          <!-- <li><a href="/php/project/admin/cartAdmin/index.php" class="nav-link px-2 text-white">Giỏ hàng</a></li> -->
           <li><a href="/php/project/admin/cartAdmin/order/orderList.php" class="nav-link px-2 text-white">Đơn hàng</a></li>
         </ul>
 

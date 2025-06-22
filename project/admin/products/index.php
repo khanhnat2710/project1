@@ -138,11 +138,11 @@
                         <button class="vista-button"><div>Chỉnh sửa</div></button>
                     </a>
                 </td>
-                <td>
+                <!-- <td>
                     <a href="../cartAdmin/addToCart.php?id=<?php echo $product["PRD_ID"]; ?>">
                         <button class="vista-button"><div>Thêm vào giỏ hàng</div></button>
                     </a>
-                </td>
+                </td> -->
                 <td>
                     <!-- Thêm sự kiện onclick để hiển thị modal -->
                     <button class="vista-button" onclick="showModal('destroy.php?id=<?php echo $product["PRD_ID"]; ?>')">

@@ -92,6 +92,11 @@
             <img src="../admin/image/<?php echo $product['IMAGE']; ?>" alt="Ảnh sản phẩm">
             <h3><?php echo $product['NAME']; ?></h3>
             <p class="price"><?php echo number_format($product['PRICE'], 0, ',', '.'); ?> đ</p>
+            <div class="product-spec-info">
+              <div><strong>Chip:</strong> <?php echo $product['CHIP']; ?></div>
+              <div><strong>RAM:</strong> <?php echo $product['RAM']; ?></div>
+              <div><strong>ROM:</strong> <?php echo $product['ROM']; ?></div>
+            </div>
           </a>
         <?php } ?>
       </div>

@@ -51,7 +51,7 @@
   <!-- Header -->
   <header class="main-header">
     <div class="container" style="display: flex; align-items: center;">
-      <a href="menu.php" class="logo" style="margin-left: 20px;">SalephoneS</a>
+      <h1 href="menu.php" class="logo" style="margin-left: 20px;">SalephoneS</h1>
       <nav class="main-nav" style="margin-left: 40px;">
         <ul>
           <li><a href="menu.php" >Trang chủ</a></li>
