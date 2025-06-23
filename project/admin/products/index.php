@@ -122,7 +122,7 @@
                     <?php echo $product['COLOR']; ?>
                 </td>
                 <td style="text-align: center;">
-                    <?php echo $product['PRICE']; ?>
+                    <?php echo number_format($product['PRICE'], 0, ',', '.'); ?></p>
                 </td>
                 <td style="text-align: center;">
                     <?php echo $product['QUANTITY']; ?>

@@ -63,30 +63,34 @@
   <section class="product-detail">
     <div class="container">
       <?php foreach ($products as $product) { ?>
-      <div class="product-detail-wrapper">
-        <div class="product-image">
-          <img src="../admin/image/<?php echo $product['IMAGE']; ?>" alt="Ảnh sản phẩm">
-        </div>
-        <div class="product-info">
-          <h2 class="product-name"><?php echo $product['NAME']; ?></h2>
-          <p class="price"><?php echo number_format($product['PRICE'], 0, ',', '.'); ?> đ</p>
-          <p class="description">Sản phẩm <?php echo $product['NAME']; ?> được trang bị công nghệ hiện đại, phù hợp với nhu cầu sử dụng hàng ngày.</p>
-          <ul class="features">
-            <li><strong>Ram:</strong> <?php echo $product['RAM']; ?></li>
-            <li><strong>Chip:</strong> <?php echo $product['CHIP']; ?></li>
-            <li><strong>Bộ nhớ trong:</strong> <?php echo $product['ROM']; ?></li>
-            <li><strong>Kích thước màn hình:</strong> <?php echo $product['SCREEN_SIZE']; ?></li>
-            <li><strong>Độ phân giải camera:</strong> <?php echo $product['CAMERA']; ?></li>
-            <li><strong>Màu sắc:</strong> <?php echo $product['COLOR']; ?></li>
-            <li><strong>Số lượng hàng còn lại:</strong> <?php echo $product['QUANTITY']; ?></li>
-          </ul>
-          <div class="action-buttons">
-            <a href="cartCustomer/addToCart.php?id=<?php echo $product["PRD_ID"]; ?>">
-              <button class="add-cart">Thêm vào giỏ hàng</button>
-            </a>
+        <div class="product-detail-wrapper">
+          <div class="product-image">
+            <img src="../admin/image/<?php echo $product['IMAGE']; ?>" alt="Ảnh sản phẩm">
+          </div>
+          <div class="product-info">
+            <h2 class="product-name"><?php echo $product['NAME']; ?></h2>
+            <p class="price"><?php echo number_format($product['PRICE'], 0, ',', '.'); ?> đ</p>
+            <p class="description">Sản phẩm <?php echo $product['NAME']; ?> được trang bị công nghệ hiện đại, phù hợp với nhu cầu sử dụng hàng ngày.</p>
+            <ul class="features">
+              <li><strong>Ram:</strong> <?php echo $product['RAM']; ?></li>
+              <li><strong>Chip:</strong> <?php echo $product['CHIP']; ?></li>
+              <li><strong>Bộ nhớ trong:</strong> <?php echo $product['ROM']; ?></li>
+              <li><strong>Kích thước màn hình:</strong> <?php echo $product['SCREEN_SIZE']; ?></li>
+              <li><strong>Độ phân giải camera:</strong> <?php echo $product['CAMERA']; ?></li>
+              <li><strong>Màu sắc:</strong> <?php echo $product['COLOR']; ?></li>
+              <li><strong>Số lượng hàng còn lại:</strong> <?php echo $product['QUANTITY']; ?></li>
+            </ul>
+            <div class="action-buttons">
+              <?php if ($product['QUANTITY'] > 0): ?>
+                <a href="cartCustomer/addToCart.php?id=<?php echo $product["PRD_ID"]; ?>">
+                  <button class="add-cart">Thêm vào giỏ hàng</button>
+                </a>
+              <?php else: ?>
+                <span style="color: #d70018; font-weight: bold; font-size: 1.1rem;">Đã hết hàng</span>
+              <?php endif; ?>
+            </div>
           </div>
         </div>
-      </div>
       <?php } ?>
     </div>
   </section>

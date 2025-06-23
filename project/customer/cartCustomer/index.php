@@ -194,9 +194,10 @@
                                         <button type="submit" name="update" class="btn btn-primary">
                                             <span class="glyphicon glyphicon-refresh"></span> Cập nhật giỏ hàng
                                         </button>
-                                        <button type="submit" formaction="../order/checkOut.php" class="btn btn-success">
-                                            Đặt hàng <span class="glyphicon glyphicon-ok"></span>
-                                        </button>
+                                        <button type="submit" formaction="../order/checkOut.php" class="btn btn-success"
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'out_of_stock') echo 'disabled'; ?>>
+    Đặt hàng <span class="glyphicon glyphicon-ok"></span>
+</button>
                                     </div>
                                 </td>
                             </tr>
@@ -211,6 +212,17 @@
     //Đóng kết nối
     include_once "../../admin/connection/close.php";
     ?>
+
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'out_of_stock'): ?>
+        <!-- Modal cảnh báo vượt quá số lượng kho -->
+        <div id="outOfStockModal" class="modal" tabindex="-1" style="display:block; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3);">
+            <div style="background:#fff; border-radius:8px; max-width:350px; margin:120px auto; padding:24px 20px; box-shadow:0 4px 16px rgba(0,0,0,0.18); text-align:center; position:relative;">
+                <h4 style="color:#d70018; margin-bottom:12px;">Lỗi đặt hàng</h4>
+                <p>Không thể đặt hàng vì vượt quá số lượng ở trong kho!</p>
+                <button onclick="document.getElementById('outOfStockModal').style.display='none';" style="margin-top:16px; background:#5bc0de; color:#fff; border:none; border-radius:5px; padding:8px 18px; font-size:15px; cursor:pointer;">Đóng</button>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <script>
         document.getElementById('openSidebar').onclick = function() {

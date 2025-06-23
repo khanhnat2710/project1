@@ -104,6 +104,49 @@
         .footer-container {
             width: 100%;
         }
+
+        /* Định dạng cho modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 8px;
+            max-width: 350px;
+            margin: 120px auto;
+            padding: 24px 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h4 {
+            color: #d70018;
+            margin-bottom: 12px;
+        }
+
+        .modal-content p {
+            margin-bottom: 16px;
+        }
+
+        .modal-content button {
+            margin-top: 16px;
+            background: #5bc0de;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 18px;
+            font-size: 15px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -140,6 +183,23 @@
         
         <button>Thêm</button>
     </form>
+
+    <!-- Modal cảnh báo trùng email -->
+    <div id="emailErrorModal" class="modal" tabindex="-1" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3);">
+      <div style="background:#fff; border-radius:8px; max-width:350px; margin:120px auto; padding:24px 20px; box-shadow:0 4px 16px rgba(0,0,0,0.18); text-align:center; position:relative;">
+        <h4 style="color:#d70018; margin-bottom:12px;">Lỗi đăng ký</h4>
+        <p>Email này đã được sử dụng. Vui lòng chọn email khác!</p>
+        <button onclick="document.getElementById('emailErrorModal').style.display='none';" style="margin-top:16px; background:#5bc0de; color:#fff; border:none; border-radius:5px; padding:8px 18px; font-size:15px; cursor:pointer;">Đóng</button>
+      </div>
+    </div>
+
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'email'): ?>
+    <script>
+        window.onload = function() {
+            document.getElementById('emailErrorModal').style.display = 'block';
+        }
+    </script>
+    <?php endif; ?>
 
     <!-- Footer nằm ở dưới cùng -->
     <!-- <div class="footer-container">

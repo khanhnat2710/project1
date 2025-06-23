@@ -2,7 +2,7 @@
     session_start();
     //Lấy giỏ hàng
     $carts = $_SESSION['cart_customer'];
-    //Mở kết nốt
+    //Mở kết nối
     include_once "../../admin/connection/open.php";
     //Lấy ngày đặt hàng là ngày hôm nay
     $orderDate = date("Y-m-d");
@@ -20,6 +20,25 @@
     foreach ($getAddresses as $getAddress){
         $deliveryLocation = $getAddress['ADDRESS'];
     }
+
+    //Kiểm tra tồn kho trước khi đặt hàng
+    $out_of_stock = false;
+    foreach ($carts as $productId => $quantity) {
+        $sql_check = "SELECT QUANTITY FROM products WHERE PRD_ID = $productId";
+        $result = mysqli_query($connection, $sql_check);
+        $row = mysqli_fetch_assoc($result);
+        if ($row['QUANTITY'] < $quantity) {
+            $out_of_stock = true;
+            break;
+        }
+    }
+    if ($out_of_stock) {
+        //Nếu có sản phẩm vượt quá số lượng kho thì quay lại giỏ hàng và báo lỗi
+        include_once "../../admin/connection/close.php";
+        header("Location: ../cartCustomer/index.php?error=out_of_stock");
+        exit;
+    }
+
     //Viết sql lưu bảng orders
     $sqlSaveOrder = "INSERT INTO orders(ORDER_DATE, ORDER_STATUS, CUS_ID, DELIVERY_LOCATION, PAY_ID)
                      VALUES ('$orderDate', '$orderStatus', '$customerID', '$deliveryLocation', '$payId')";
@@ -36,24 +55,24 @@
     }
     /* Lấy thông tin sản phẩm để lưu vào order_details */
     foreach ($carts as $productId => $quantity){
+        // Trừ số lượng tồn kho cho từng sản phẩm
+        $sql_update_qty = "UPDATE products SET QUANTITY = QUANTITY - $quantity WHERE PRD_ID = $productId";
+        mysqli_query($connection, $sql_update_qty);
         //Viết sql lấy giá của sản phẩm
         $sqlGetPrice = "SELECT PRICE FROM products WHERE PRD_ID = '$productId'";
-        //Chạy sql
         $getPrices = mysqli_query($connection, $sqlGetPrice);
-        //Lấy giá của sản phẩm
         foreach ($getPrices as $getPrice){
             $price = $getPrice['PRICE'];
         }
         //Viết sql lưu dữ liệu vào order_details
         $sqlSaveOrderDetails = "INSERT INTO order_detail(ORDER_ID, PRD_ID, QUANTITY, PRICE)
                                 VALUES ('$orderId', '$productId', '$quantity', '$price')";
-        //Chạy sql
         mysqli_query($connection, $sqlSaveOrderDetails);
     }
     //Đóng kết nối
     include_once "../../admin/connection/close.php";
     //Xóa giỏ hàng
     unset($_SESSION['cart_customer']);
-    //QUay về trang danh sách đơn hàng
+    //Quay về trang danh sách đơn hàng
     header("Location: orderList.php");
 ?>

@@ -14,6 +14,15 @@
             // Nếu đơn hàng đang chờ xử lý thì mới cho phép hủy
             $sql = "UPDATE orders SET ORDER_STATUS = 4 WHERE ORDER_ID = '$id'";
             mysqli_query($connection, $sql);
+            // Cộng lại số lượng vào kho cho từng sản phẩm trong đơn hàng
+            $sqlDetail = "SELECT PRD_ID, QUANTITY FROM order_detail WHERE ORDER_ID = '$id'";
+            $resultDetail = mysqli_query($connection, $sqlDetail);
+            while ($row = mysqli_fetch_assoc($resultDetail)) {
+                $product_id = $row['PRD_ID'];
+                $quantity = $row['QUANTITY'];
+                $sql_restore = "UPDATE products SET QUANTITY = QUANTITY + $quantity WHERE PRD_ID = $product_id";
+                mysqli_query($connection, $sql_restore);
+            }
             $canCancel = true;
         }
     }
@@ -23,6 +32,6 @@
     if ($canCancel) {
         header("Location: orderList.php");
     } else {
-        header("Location: orderDetail.php?id=$id&error=Kh%C3%B4ng%20th%E1%BB%83%20h%E1%BB%8Dc%C3%B9ng%20v%C3%A0o%20%C4%91%C6%B0%E1%BB%9Dng%20d%E1%BA%A1ng%20n%C3%A0o%20%C4%91%C3%A2y!");
+        header("Location: orderDetail.php?id=$id&error=Kh%C3%B4ng%20th%E1%BB%83%20h%E1%BB%A7y%20%C4%91%C6%A1n%20h%C3%A0ng!");
     }
 ?>

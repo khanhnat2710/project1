@@ -141,7 +141,7 @@
             <input type="text" name="phone" id="phone" value="<?php echo $customer['PHONE_NUMBER']; ?>">
 
             <label for="email">Email:</label>
-            <input type="text" name="email" id="email" value="<?php echo $customer['EMAIL']; ?>">
+            <input type="text" name="email" id="email" value="<?php echo $customer['EMAIL']; ?>" readonly>
 
             <label for="password">Mật khẩu:</label>
             <input type="password" name="password" id="password" value="<?php echo $customer['PASSWORD']; ?>">
