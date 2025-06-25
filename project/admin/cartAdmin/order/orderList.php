@@ -33,7 +33,7 @@ session_start();
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link text-white" href="../../brands/index.php">🏷️ Nhãn hàng</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="../../types/index.php">📱 Kiểu máy</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="../../payment_methods/index.php">💳 Phương
+                <li class="nav-item"><a class="nav-link text-white" href="../../payment methods/index.php">💳 Phương
                         thức thanh toán</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="../../products/index.php">🛒 Sản phẩm</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="../../customers/index.php">👤 Khách hàng</a>

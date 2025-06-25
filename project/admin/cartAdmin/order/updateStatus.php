@@ -21,6 +21,6 @@
     }
     //Đóng kết nối
     include_once "../../connection/close.php";
-    //Quay về trang danh sách đơn hàng
-    header("Location: orderList.php");
+    //Quay về trang chi tiết đơn hàng
+    header("Location: orderDetail.php?id=$orderId");
 ?>

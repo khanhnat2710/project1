@@ -32,6 +32,6 @@
     if ($canCancel) {
         header("Location: orderList.php");
     } else {
-        header("Location: orderDetail.php?id=$id&error=Kh%C3%B4ng%20th%E1%BB%83%20h%E1%BB%A7y%20%C4%91%C6%A1n%20h%C3%A0ng!");
+        header("Location: orderDetail.php?id=$id");
     }
 ?>

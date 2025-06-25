@@ -22,7 +22,7 @@
             $_SESSION['USERNAME'] = $row['USERNAME'];
             $_SESSION['PASSWORD'] = $row['PASSWORD'];
             //quay về trang admin
-            header("location: ../admins/index.php");
+            header("location: ../index.php");
         }
     }
 ?>

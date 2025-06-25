@@ -151,7 +151,6 @@
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="../menu.php" style="color:#fff;"><i class="fa fa-home"></i> Trang chủ</a></li>
                 <li><a href="../productList.php" style="color:#fff;"><i class="fa fa-th-list"></i> Sản phẩm</a></li>
-                <li><a href="../order/orderList.php" style="color:#fff;"><i class="fa fa-list-alt"></i> Đơn hàng</a></li>
                 <li><a href="../login/login.php" style="color:#fff;"><i class="fa fa-sign-in-alt"></i> Đăng nhập</a></li>
             </ul>
         </div>
@@ -229,6 +228,12 @@
         <script>
             window.onload = function () {
                 document.getElementById('emailErrorModal').style.display = 'block';
+                // Xóa tham số error khỏi URL sau khi hiển thị modal
+                if (window.history.replaceState) {
+                    const url = new URL(window.location);
+                    url.searchParams.delete('error');
+                    window.history.replaceState({}, document.title, url.pathname + url.search);
+                }
             }
         </script>
     <?php endif; ?>
@@ -247,7 +252,7 @@
             openBtn.onclick = function(e) {
                 sidebar.style.left = '0';
                 openBtn.style.display = 'none';
-                e.stopPropagation(); // Ngăn sự kiện nổi bọt lên document
+                e.stopPropagation(); 
             };
             closeBtn.onclick = function(e) {
                 sidebar.style.left = '-250px';
